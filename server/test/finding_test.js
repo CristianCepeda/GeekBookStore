@@ -6,13 +6,12 @@ const BookDet = require('../models/books');
 describe('Finding records', function(){
   var bk;
   beforeEach(function(done){
-    bk = new BookDet({
+    bk = new BookDet({ //mongoose gives the obj an Id
       title: 'Notebook'
     });
 
     //after saved then object is not new anymore...false
     bk.save().then(function(){
-      assert(bk.isNew === false);
       done();
     });
   });
