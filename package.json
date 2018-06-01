@@ -1,0 +1,30 @@
+{
+  "name": "geekbookstore",
+  "version": "1.0.0",
+  "description": "Online Book Store",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scvGeekText/GeekBookStore.git"
+  },
+  "author": "[Cristian Cepeda] [Stephanie Cliett] [Victor Chang] [Heli Cobos]",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scvGeekText/GeekBookStore/issues"
+  },
+  "homepage": "https://github.com/scvGeekText/GeekBookStore#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  },
+  "devDependencies": {
+    "react-scripts": "^1.1.4"
+  }
+}
