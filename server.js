@@ -13,9 +13,9 @@ server.use(sassMiddleware({
 /* Use EJS to server render our javascript front end components*/
 server.set('view engine', 'ejs');
 
-/* It exposes an API to listen to cetain routes. We do a server .get specifying
+/* It exposes an API to listen to certain routes. We do a server .get specifying
 the route we're interested in as the first argument. The second argument is the
-event handler, simillar to an HTTP module, recieves bot a request and a
+event handler, similar to an HTTP module, receives bot a request and a
 response object.
 
 The response.render() method is used to render or ejs template from the view
@@ -26,7 +26,7 @@ server.get('/', (req, res) => {
   });
 });
 
-/* Side note -- We should manage static assets sepratley from the node server,
+/* Side note -- We should manage static assets separately from the node server,
 we could use instead NGINX
 
 This is express static middleware that we can use to automatically serve
@@ -34,7 +34,7 @@ static assets. This means any file found inside the public folder. */
 server.use(express.static('public'));
 
 /* Instead of listening to a single request event, an express server also
-handels server side routing for us. */
+handles server side routing for us. */
 server.listen(config.port, () => {
   console.info('Express listening on port', config.port);
 });
