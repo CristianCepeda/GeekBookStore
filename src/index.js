@@ -5,6 +5,6 @@ import data from './bookLibrary';
 import App from './components/App';
 
 ReactDOM.render(
-  <App books={data.books} />,
+  <App books={data.books} className="Website"/>,
   document.getElementById('root')
 );
