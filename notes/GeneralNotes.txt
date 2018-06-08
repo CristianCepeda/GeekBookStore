@@ -1,0 +1,5 @@
+- Express will handle your backend routes whereas
+React (with react-router) will handle frontend routes.
+
+- Great read on forms of Git Workflow. There are other links that can be
+helpful in better understanding on how to use Git. 
