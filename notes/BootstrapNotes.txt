@@ -1,0 +1,13 @@
+Bootstrap Notes
+These Notes are on Utilities/Spacing
+https://getbootstrap.com/docs/4.1/utilities/spacing/
+- Dealing with margin and padding
+    {property}{sides}-{size}
+
+    property          sides
+    m- margin         t- top
+    p- padding        b- bottom
+                      l- left
+                      r- right
+                      x- left and right
+                      y- top and bottom
