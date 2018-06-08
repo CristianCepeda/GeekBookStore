@@ -17,7 +17,6 @@ server.set('view engine', 'ejs');
 the route we're interested in as the first argument. The second argument is the
 event handler, similar to an HTTP module, receives bot a request and a
 response object.
-
 The response.render() method is used to render or ejs template from the view
 folder */
 server.get('/', (req, res) => {
@@ -28,7 +27,6 @@ server.get('/', (req, res) => {
 
 /* Side note -- We should manage static assets separately from the node server,
 we could use instead NGINX
-
 This is express static middleware that we can use to automatically serve
 static assets. This means any file found inside the public folder. */
 server.use(express.static('public'));
