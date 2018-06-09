@@ -12,6 +12,7 @@ import SignUp from './SignUp';
 import HeaderNav from './HeaderNav';
 import DisplayBook from './DisplayBook';
 import FooterSection from './FooterSection';
+//console.log("Connected successfully to server");
 
 class App extends Component {
   render() {
