@@ -15,7 +15,7 @@ server.set('view engine', 'ejs');
 
 /* It exposes an API to listen to certain routes. We do a server .get specifying
 the route we're interested in as the first argument. The second argument is the
-event handler, similar to an HTTP module, receives bot a request and a
+event handler, similar to an HTTP module, receives both a request and a
 response object.
 
 The response.render() method is used to render or ejs template from the view

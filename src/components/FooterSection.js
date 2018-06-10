@@ -9,6 +9,7 @@ import {
 class FooterSection extends Component {
   render() {
     return(
+<<<<<<< HEAD
       <div>
         <p>CopyRight</p>
         <p>Add SightMap</p>
@@ -19,6 +20,29 @@ class FooterSection extends Component {
         <p>Footer goes Here</p>
         <a href="https://www.orbitmedia.com/blog/website-footer-design-best-practices/">Use this website if anything</a>
       </div>
+=======
+      <footer>
+        <p>For reference on standards of footers visit this <a href="https://www.orbitmedia.com/blog/website-footer-design-best-practices/">Page</a></p>
+        <div className="container px-5 pt-3 border-top box-shadow">
+          <div className="row">
+            <div className="col">
+              <p>© 2018 GeekBookStore, Inc.</p>
+            </div>
+            <div className="col">
+              <p>Add SightMap</p>
+            </div>
+            <div className="col">
+              <Link to="/">Contact</Link>
+              <p>For contact share the people that contributed to the website</p>
+            </div>
+            <div className="col">
+              <Link to="/">About</Link>
+              <p>What the website is about, maybe also include what we used and a link to the github account for reference</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+>>>>>>> cristian-cepeda
     );
   };
 };

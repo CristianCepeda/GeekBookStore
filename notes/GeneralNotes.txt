@@ -1,5 +1,75 @@
+<<<<<<< HEAD
 - Express will handle your backend routes whereas
 React (with react-router) will handle frontend routes.
 
 - Great read on forms of Git Workflow. There are other links that can be
 helpful in better understanding on how to use Git. 
+=======
+<!-- Express Notes
+-------------------------->
+- Express will handle your backend routes whereas
+React (with react-router) will handle frontend routes.
+
+- server.get() is getting data. and then it responds with the data.
+- server.post() is actually sending data to the server.
+- server.put() is basically an update. If you have something in your system and
+you want to update it, then you can do this particular method.
+- server.delete() is once you have data in your system, and you want to delete
+it, then delete command here is the way to do so.
+
+<!-- Mongoose
+-------------------------->
+Mongoose is basically a library to help us with modeling our database and bring
+several built in tools to help us with validation, business logic, hooks,
+et cetera.
+
+<!-- MongoDB
+-------------------------->
+- In your CLI under the first tab run
+  - mongod
+    - To run MongoDB
+    
+- Under the second tab run
+  - mongo --host 127.0.0.1:27017
+    - This is to run a mongo shell on the same host machine as the mongod. Use
+    the --host command line option to specify the localhost address and port
+    that the mongod listens on:
+
+
+<!-- RESTful API
+-------------------------->
+- RESTful API is a way to transact with a backend using HTTP transactions.
+- We use a series of calls like GET,POST,PUT, and DELETE with an HTML address
+to transact with our backend and its data.
+- Example we use GET calls to pull the data from the backend. If we need to add
+new data then, we use POST. If we need to update data, we use PUT. And finally
+DELETE. Well if you need to delete data.
+
+<!-- ES6
+-------------------------->
+Template strings ex. res.send(`Node and express server is running on port ${PORT}`)
+
+<!-- Git Workflows
+-------------------------->
+- Great read on forms of Git Workflow. There are other links that can be
+helpful in better understanding on how to use Git.
+- https://www.atlassian.com/git/tutorials/comparing-workflows
+
+
+<!-- package.json dependencies
+-------------------------->
+- Nodemon is basically a package that allows us to refresh the server
+automatically whenever you make changes to your server as opposed to have to
+shut it down and start it over to see your changes.
+
+
+<!-- Creating Mock Data
+-------------------------->
+For reference we can use this to create fake data. Maybe take a look into it and
+see if it might be useful.
+  - https://mockaroo.com/
+
+<!-- Read these Articles
+-------------------------->
+https://medium.com/@tommybernaciak/react-and-flux-for-beginners-821ef3d4d9fd
+>>>>>>> cristian-cepeda
