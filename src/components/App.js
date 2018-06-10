@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 /* Pages */
-import SignUp from './SignUp';
+import SignIn from './SignIn';
 /* Components */
 import HeaderNav from './HeaderNav';
 import DisplayBook from './DisplayBook';
@@ -20,7 +20,7 @@ class App extends Component {
         <div>
           <HeaderNav />
           <Switch>
-            <Route path="/signup" component={SignUp}/>
+            <Route path="/signin" component={SignIn}/>
             <Route exact path="/" render={(props) =>(
               /*The Main Part Of the Website should go inside of <main></main> */
               <main>
