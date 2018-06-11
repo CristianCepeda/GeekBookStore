@@ -4,17 +4,8 @@ https://getbootstrap.com/docs/4.1/utilities/spacing/
 - Dealing with margin and padding
     {property}{sides}-{size}
 
-<<<<<<< HEAD
-    property          sides
-    m- margin         t- top
-    p- padding        b- bottom
-                      l- left
-                      r- right
-                      x- left and right
-                      y- top and bottom
-=======
     property          sides                 size
-    m- margin         t- top                  0   
+    m- margin         t- top                  0
     p- padding        b- bottom               1   $spacer * .25
                       l- left                 2   $spacer * .5
                       r- right                3   $spacer
@@ -23,4 +14,3 @@ https://getbootstrap.com/docs/4.1/utilities/spacing/
 
 margin: is the space outside the border
 padding: is the space between the content and the border
->>>>>>> cristian-cepeda

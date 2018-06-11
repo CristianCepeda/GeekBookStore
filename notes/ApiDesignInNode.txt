@@ -1,0 +1,23 @@
+Node JS is basically a way to run javascript outside the context of the browser.
+
+CommonJS is what the people at Node decided to use as there Module loader. So
+using the require() we can get access to built in and 3rd party npm modules.
+
+Using the exports object on module we can expose our code to be required later.
+To execute node against a file we can run node/path/to/file
+
+//config.js
+exports.setup = function() {};
+exports.enable = function() {};
+exports.ready = function() {};
+
+// otherfile.js
+module.exports = {
+  action: function() {},
+  trigger: true
+}
+
+<!-- Express
+-------------------------->
+Express is a framework that sits on top of Node, and uses the HTTP module to
+make building servers in Node not so hard. 

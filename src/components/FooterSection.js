@@ -9,18 +9,6 @@ import {
 class FooterSection extends Component {
   render() {
     return(
-<<<<<<< HEAD
-      <div>
-        <p>CopyRight</p>
-        <p>Add SightMap</p>
-        <Link to="/">Contact</Link>
-        <p>For contact share the people that contributed to the website</p>
-        <Link to="/">About</Link>
-        <p>What the website is about, maybe also inculde what we used and a link to the github account for refrence</p>
-        <p>Footer goes Here</p>
-        <a href="https://www.orbitmedia.com/blog/website-footer-design-best-practices/">Use this website if anything</a>
-      </div>
-=======
       <footer>
         <p>For reference on standards of footers visit this <a href="https://www.orbitmedia.com/blog/website-footer-design-best-practices/">Page</a></p>
         <div className="container px-5 pt-3 border-top box-shadow">
@@ -42,7 +30,6 @@ class FooterSection extends Component {
           </div>
         </div>
       </footer>
->>>>>>> cristian-cepeda
     );
   };
 };

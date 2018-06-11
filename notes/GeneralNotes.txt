@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-- Express will handle your backend routes whereas
-React (with react-router) will handle frontend routes.
-
-- Great read on forms of Git Workflow. There are other links that can be
-helpful in better understanding on how to use Git. 
-=======
 <!-- Express Notes
 -------------------------->
 - Express will handle your backend routes whereas
@@ -28,7 +21,7 @@ et cetera.
 - In your CLI under the first tab run
   - mongod
     - To run MongoDB
-    
+
 - Under the second tab run
   - mongo --host 127.0.0.1:27017
     - This is to run a mongo shell on the same host machine as the mongod. Use
@@ -72,4 +65,3 @@ see if it might be useful.
 <!-- Read these Articles
 -------------------------->
 https://medium.com/@tommybernaciak/react-and-flux-for-beginners-821ef3d4d9fd
->>>>>>> cristian-cepeda
