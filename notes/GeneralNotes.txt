@@ -21,7 +21,7 @@ et cetera.
 - In your CLI under the first tab run
   - mongod
     - To run MongoDB
-    
+
 - Under the second tab run
   - mongo --host 127.0.0.1:27017
     - This is to run a mongo shell on the same host machine as the mongod. Use

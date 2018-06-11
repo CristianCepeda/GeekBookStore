@@ -5,7 +5,7 @@ https://getbootstrap.com/docs/4.1/utilities/spacing/
     {property}{sides}-{size}
 
     property          sides                 size
-    m- margin         t- top                  0   
+    m- margin         t- top                  0
     p- padding        b- bottom               1   $spacer * .25
                       l- left                 2   $spacer * .5
                       r- right                3   $spacer
