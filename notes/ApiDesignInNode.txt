@@ -20,4 +20,61 @@ module.exports = {
 <!-- Express
 -------------------------->
 Express is a framework that sits on top of Node, and uses the HTTP module to
-make building servers in Node not so hard. 
+make building servers in Node not so hard.
+
+(req, res) are just objects in the call back that we get access to.
+- Request, we have all tons of information about what is truing to access our server.
+- Response gives us all types of ways to respond back to the client.
+
+res.send converts to json as well but
+req.json will convert things like null and undefined to json too although
+
+- Express uses middleware to modify and inspect the incoming request. There are
+tons of community middleware that makes building with express super easy. From
+parsing urls to handling auth, middleware makes this easy.
+
+Middleware is just a function that allows us to, thats going to be ran in an
+order that we register with Express. And its job is to do whatever we want it
+to do.
+
+RESTful
+- Stateless, using the verbs, directory-like URL pattern for the routes, and
+emits and consumes JSON and or XML.
+
+function(req,res){
+
+}
+You can only respond once, not per function, but per request, you can only
+respond once.
+
+Middleware is the backbone of Express. Express is just a routing and middleware
+framework. Middleware is a function with access to the request object, the
+response object, and the next() function that when called will go to the next
+middleware. Middleware can run any code, change the request and response
+objects, end the request-response cycle, and call the next middleware in the
+stack. If a middleware does not call next() or end the cycle, then server will
+just hang.
+
+There are 5 different types of middleware in express 4.x
+  - 3rd party
+  - Router level
+  - Application level
+  - Error-handling
+  - Built-in
+
+Syntax to creating our own middleware
+
+  var options = function(opts) {                var options = function(req, res, next) {
+    return function(req,res,next){                  next();
+      next();                           or        }
+    }                                           };
+  };
+
+app.use(options({name: 'hey'}))                 app.use(options);
+- This is a function that returns               - This is a middleware
+a middleware
+
+Integration Testing
+https://mochajs.org/
+http://www.chaijs.com/
+https://github.com/visionmedia/supertest
