@@ -5,6 +5,10 @@ import path from 'path';
 import express from 'express';
 const server = express();
 
+/*  This should look something like this
+    __dirname + '/sass'
+    which will look for that sass folder in the current directory and then
+    the folder sass. Same would go with destination. */
 server.use(sassMiddleware({
   src: path.join(__dirname, 'sass'),
   dest: path.join(__dirname, 'public')
@@ -30,8 +34,18 @@ server.get('/', (req, res) => {
 we could use instead NGINX
 
 This is express static middleware that we can use to automatically serve
-static assets. This means any file found inside the public folder. */
+static assets. This means any file found inside the public folder. Also it will
+server the index.html on the root of that directory on a GET to '/'
+
+- server.use() is just a way for us to register middleware on an application
+level, becasue this object right here, server, is our web application.
+
+- This is considered application-wide middleware*/
 server.use(express.static('public'));
+
+server.get('/signin',function(req,res){
+  res.json("What the fuck my hommie");
+});
 
 /* Instead of listening to a single request event, an express server also
 handles server side routing for us. */
