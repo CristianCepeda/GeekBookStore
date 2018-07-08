@@ -1,0 +1,19 @@
+// import { createStore } from 'redux';
+This is the same as saying
+// const { createStore } = Redux;
+
+<!-- This would be a Reducer
+------------------------------->
+const counter = (State = 0, action) => {
+  switch(action.type {
+    case 'INCREMENT':
+      return state + 1;
+    case 'DECREMENT':
+      return state - 1;
+    default:
+      return state;
+    }
+}
+
+<!-- This would be a Reducer
+------------------------------->

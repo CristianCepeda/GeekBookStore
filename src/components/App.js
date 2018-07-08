@@ -8,6 +8,7 @@ import {
 
 /* Pages */
 import SignIn from './SignIn';
+import AccountPage from './AccountPage';
 /* Components */
 import HeaderNav from './HeaderNav';
 import DisplayBook from './DisplayBook';
@@ -20,7 +21,8 @@ class App extends Component {
         <div>
           <HeaderNav />
           <Switch>
-            <Route path="/signin" component={SignIn}/>
+            <Route path="/signin" component={SignIn} />
+            <Route path="/accountpage" component={AccountPage} />
             <Route exact path="/" render={(props) =>(
               /*The Main Part Of the Website should go inside of <main></main> */
               <main>
@@ -28,7 +30,7 @@ class App extends Component {
                   <p>Images should go here</p>
                   <p>The List of Top 20 Books from BBN</p>
                   {this.props.books.map(book =>
-                    <DisplayBook {...book}/>
+                    <DisplayBook key={book.id} {...book}/>
                   )}
                 </div>
               </main>

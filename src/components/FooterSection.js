@@ -18,6 +18,7 @@ class FooterSection extends Component {
             </div>
             <div className="col">
               <p>Add SightMap</p>
+              <Link to="/accountpage">Account</Link>
             </div>
             <div className="col">
               <Link to="/">Contact</Link>

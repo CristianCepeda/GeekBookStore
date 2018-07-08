@@ -23,7 +23,8 @@ Express is a framework that sits on top of Node, and uses the HTTP module to
 make building servers in Node not so hard.
 
 (req, res) are just objects in the call back that we get access to.
-- Request, we have all tons of information about what is truing to access our server.
+- Request, we have all tons of information about what is truing to access our
+server.
 - Response gives us all types of ways to respond back to the client.
 
 res.send converts to json as well but
@@ -36,6 +37,22 @@ parsing urls to handling auth, middleware makes this easy.
 Middleware is just a function that allows us to, thats going to be ran in an
 order that we register with Express. And its job is to do whatever we want it
 to do.
+
+<!-- Notes from Express Website
+---------------------------------->
+Express is a routing and middleware web framework that has minimal
+functionality of it own: An express application is essentially a series of
+middleware functions calls.
+
+Middleware functions are functions that have access to the request object(req),
+the response object(res), and the next middleware function in the applications
+request-response cycle.
+
+You can create chainable route handlers for a route path by using app.route().
+Because the path is specified at a single location, creating modular routes is
+helpful, as is reducing redundancy and typos.
+  - group the http methods into one app.route() since they all have the same
+    path.
 
 RESTful
 - Stateless, using the verbs, directory-like URL pattern for the routes, and
