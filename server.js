@@ -44,9 +44,9 @@ server the index.html on the root of that directory on a GET to '/'
 - server.use() is just a way for us to register middleware on an application
 level, because this object right here, server, is our web application.
 
+
 - This is considered application-wide middleware*/
 server.use(express.static('public'));
-
 
 /* Instead of listening to a single request event, an express server also
 handles server side routing for us. */
