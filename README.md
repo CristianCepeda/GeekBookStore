@@ -4,7 +4,7 @@ This will be an online web application that uses MERN and FLUX.
 ## Contributors
 
 * Stephanie Cliett    ()    @sclie001
-* Victor Chang        (Vchan023@fiu.edu)
+* Victor Chang        (Vchan023@fiu.edu)    @vchan023
 * Cristian Cepeda     (ccepe014@fiu.edu)    @CristianCepeda
 * Heli Cobos          (hcobo002@fiu.edu)    @hcobo002
 

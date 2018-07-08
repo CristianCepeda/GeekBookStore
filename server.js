@@ -1,4 +1,6 @@
 import config from './config';
+import apiRouter from './api';
+
 import sassMiddleware from 'node-sass-middleware';
 import path from 'path';
 
@@ -30,6 +32,8 @@ server.get('/', (req, res) => {
   });
 });
 
+server.use('/', apiRouter);
+
 /* Side note -- We should manage static assets separately from the node server,
 we could use instead NGINX
 
@@ -38,14 +42,11 @@ static assets. This means any file found inside the public folder. Also it will
 server the index.html on the root of that directory on a GET to '/'
 
 - server.use() is just a way for us to register middleware on an application
-level, becasue this object right here, server, is our web application.
+level, because this object right here, server, is our web application.
+
 
 - This is considered application-wide middleware*/
 server.use(express.static('public'));
-
-server.get('/signin',function(req,res){
-  res.json("What the fuck my hommie");
-});
 
 /* Instead of listening to a single request event, an express server also
 handles server side routing for us. */

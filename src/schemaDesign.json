@@ -1,0 +1,54 @@
+{
+  "user" : {
+    "name": {
+      "firstname": "String",
+      "lastname": "String"
+    },
+    "email": "String",
+    "password": "String",
+    "userid": "String",
+    "nickname": "String",
+    "Home Address": {
+      "address": "String",
+      "address2": "String",
+      "city": "String",
+      "state": "String",
+      "zip": "Number"
+    },
+
+    "userid": "String",
+    "password": "String",
+    "username": "String",
+    "password": "String",
+    "id": "moongose.Schema.Types.ObjectId"
+  }
+}
+
+{
+  "users": [
+    {
+      "email" : "camilo2017@gmail.com",
+      "username" : "camilo2017",
+      "password" : "cepeda1993",
+      "name" : {
+        "firstname" : "Cristian",
+        "lastName" : "Cepeda"
+        },
+      "address" : {
+        "street": "",
+        "city" : "",
+        "state" : "",
+        "zipcode" : ""
+      }
+    }
+  ]
+}
+
+GeekBookStore Login Credentials           Book Rating and Commenting Information
+  - User ID                                 - Nickname
+  - Password
+
+Personal Information                      My Payment Information
+  - Name                                    - Credit Card Information (MULTIPLE)
+  - Email Address                           - Shipping Address (MULTIPLE)
+  - Home Address

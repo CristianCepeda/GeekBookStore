@@ -1,8 +1,16 @@
 // By saying use followed by the name of what db you want, mongo will switch to
    it. After we create the toys collection, we inserted a new toys document.
-   We then asked to find all the toys. 
+   We then asked to find all the toys.
 use puppies
 db.createCollection('toys')
 show collections
 db.people.insert({name:'Tom Tommy', id:'0', city:'Miami'})
 db.people.find()
+
+// If you're on a Mac you might need to get read and write access to that file
+// so enter
+
+  - sudo chmod 0755 /data/db sudo chown $USER /data/db
+
+Start MongoDB by running
+  - mongod
