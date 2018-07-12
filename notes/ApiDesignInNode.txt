@@ -25,6 +25,7 @@ make building servers in Node not so hard.
 (req, res) are just objects in the call back that we get access to.
 - Request, we have all tons of information about what is truing to access our
 server.
+
 - Response gives us all types of ways to respond back to the client.
 
 res.send converts to json as well but

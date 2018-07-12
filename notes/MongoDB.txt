@@ -14,6 +14,7 @@ db.people.insert({name:'Tom Tommy', id:'0', city:'Miami'})
 db.people.find()
 
 Start MongoDB by running
+
   - mongod
 <------------------------------------------------------------------------------>
 Notes taken from docs.mongodb.com
@@ -65,3 +66,5 @@ References
  username: "123xyz",        |     phone: "123-212-122",
                             |     email: "xyz@example.com"
 }                           |   }
+
+  - mongod
