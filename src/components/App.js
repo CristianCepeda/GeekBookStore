@@ -12,6 +12,7 @@ import AccountPage from './Account/AccountPage';
 import HeaderNav from './HeaderNav';
 import DisplayBook from './DisplayBook';
 import FooterSection from './FooterSection';
+import CommentSec from './CommentSec';
 
 class App extends Component {
   render() {
@@ -32,6 +33,9 @@ class App extends Component {
                     <DisplayBook key={book.id} {...book}/>
                   )}
                 </div>
+                /*<div className="container">*/
+                /*  <CommentSec />*/
+              /*  </div>*/
               </main>
             )} />
           </Switch>
