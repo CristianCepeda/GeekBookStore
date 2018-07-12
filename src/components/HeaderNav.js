@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link
-} from 'react-router-dom';
-
-import SignIn from './SignIn';
+import {Link} from 'react-router-dom';
 
 class HeaderNav extends Component {
   render() {
@@ -29,7 +22,7 @@ class HeaderNav extends Component {
         </div>
       </header>
     );
-  };
-};
+  }
+}
 
 export default HeaderNav;
