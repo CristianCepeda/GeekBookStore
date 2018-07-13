@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import data from './bookLibrary';
+import data from './assets/data/bookLibrary';
 import App from './components/App';
 
 /*

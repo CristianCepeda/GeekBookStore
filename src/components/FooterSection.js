@@ -1,10 +1,5 @@
 import React, { Component} from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link
-} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class FooterSection extends Component {
   render() {
@@ -32,7 +27,7 @@ class FooterSection extends Component {
         </div>
       </footer>
     );
-  };
-};
+  }
+}
 
 export default FooterSection;

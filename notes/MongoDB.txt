@@ -1,3 +1,9 @@
+<------------------------------------------------------------------------------>
+// If you're on a Mac you might need to get read and write access to that file
+// so enter
+
+  - sudo chmod 0755 /data/db sudo chown $USER /data/db
+<------------------------------------------------------------------------------>
 // By saying use followed by the name of what db you want, mongo will switch to
    it. After we create the toys collection, we inserted a new toys document.
    We then asked to find all the toys.
@@ -7,10 +13,56 @@ show collections
 db.people.insert({name:'Tom Tommy', id:'0', city:'Miami'})
 db.people.find()
 
-// If you're on a Mac you might need to get read and write access to that file
-// so enter
-
-  - sudo chmod 0755 /data/db sudo chown $USER /data/db
-
 Start MongoDB by running
+
   - mongod
+<------------------------------------------------------------------------------>
+Notes taken from docs.mongodb.com
+
+<!-- Databases and Collections
+-------------------------------------->
+MongoDB stores BSON documents.
+  - BSON documents are binary representation of JSON documents.
+In MongoDB, databases hold collections of documents.
+  - Collections are analogous to tables in relational databases.
+
+A View has the property that they are read-only; write operations on views will
+error.
+
+<!-- Documents
+---------------------->
+MongoDB documents are composed of field-and-value pairs. The value of a field
+can be any of the BSON data types, including other documents, arrays, and
+arrays of documents.
+
+<!-- Data Modeling Introduction
+--------------------------------------->
+MongoDB documents make it possible to embed document structures in a filed or
+array within a document. These denormalized data models allow applications to
+retrieve and manipulate related data in a single database operation.
+
+                                Example
+{
+ _id: <ObjectID>,
+ username: "123xyz",                          ____
+ contact: {                                       |
+            phone: "123-212-122",                 |-> Embedded document
+            email: "xyz@example.com"          ____|
+          }
+}
+
+References
+  References store the relationships between data by including links or
+  references from one document to another. Applications can resolve these
+  references to access the related data. Broadly, these are normalized data
+  models.
+
+  - Picture as if your putting the information in there own tables. So it would look
+  like this. And you'll be referencing the tables by the <ObjectID1>
+
+      User Document                    Contact Document
+{                           |   {
+ _id: <ObjectID1>,          |     user_id: <ObjectID1>,
+ username: "123xyz",        |     phone: "123-212-122",
+                            |     email: "xyz@example.com"
+}                           |   }

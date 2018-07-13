@@ -1,3 +1,36 @@
+<!-- ReactJS Notes
+-------------------------->
+Main Concepts - 4.Components and Props
+  - Note: Always start component names with a capital letter.
+  - React treats components starting with lowercase letters as DOM tags.
+React is pretty flexible but it has a single strict rule:
+  - All react components must act like pure functions with respect to their
+  props.
+
+Main Concepts - 5.State and Lifecycle
+  - State is similar to props, but it is private and fully controlled by the
+  component.
+
+  - In applications with many components, it’s very important to free up
+  resources taken by the components when they are destroyed.
+  - When a component is rendered to the DOM for the first time. This is called
+  "mounting" in React.
+  - componentDidMount() and componentWillUnmount() These methods are called
+  "Lifecycle Hooks"
+
+  The Data Flows Down
+    - Neither parent nor child components can know if a certain component is
+    stateful or stateless, and they shouldn't care whether it is defined as a
+    function or a class.
+    - This is why state is often called local or encapsulated.
+    - A component may choose to pass its state down as props to its child
+    components. This is commonly called a "top-down" or "unidirectional" data
+    flow.
+
+Main Concepts - 6.Handling Events
+  - With JSX you pass a function as the event handler, rather than a string.
+
+
 <!-- Express Notes
 -------------------------->
 - Express will handle your backend routes whereas
@@ -10,14 +43,22 @@ you want to update it, then you can do this particular method.
 - server.delete() is once you have data in your system, and you want to delete
 it, then delete command here is the way to do so.
 
+- An Express Server also handles server side routing for us. So it exposes an
+API to listen to certain routes. So thats when we do a server.get() call.
+                  server.get('argument1','argument2')
+The first argument is the the "route" that we are interested in. And the second
+argument is the "Event Handler" which is similar to the HTTP module, which
+receives bot a request and a response object.
+- A web server returns the content of a file, like HTML or JS.
+
 <!-- Mongoose
--------------------------->
+--------------------->
 Mongoose is basically a library to help us with modeling our database and bring
 several built in tools to help us with validation, business logic, hooks,
 et cetera.
 
 <!-- MongoDB
--------------------------->
+-------------------->
 - In your CLI under the first tab run
   - mongod
     - To run MongoDB
@@ -28,9 +69,63 @@ et cetera.
     the --host command line option to specify the localhost address and port
     that the mongod listens on:
 
+<!-- MVC Software Architecture
+-------------------------------------->
+Possible structure of the project
+api/
+  todos/
+    todoModel.js
+    todoController.js
+    todoRoutes.js
+
+Model - Defines data structure
+e.g updates application to reflect added item.
+  - Model defines what data the app should contain. If the state of this data
+  changes, then the model will usually notify the view (so the display can
+  change as needed) and sometimes the controller (if different logic is needed
+  to control the updated view.)
+
+  - Your data model is probably contained in some kind of database.
+Controller - Contains control logic
+e.g receives update from view then notifies model to 'add item'
+  - The controller contains logic that updates the model and/or view in response
+  to input from the users of the app.
+  -Example would be with input forms and buttons that allow us to add or delete
+  items. These actions require the model to be updated, so the input is sent to
+  the controller, which then manipulates the model as appropriate, which then
+  sends updated data to the view.
+  - Another Example would be to just update the view to display the data in a
+  different format, e.g. change the item order to alphabetical, or lowest to
+  highest price. In this case the controller could handle this directly
+  without needing to update the model.
+
+***
+  - Service-Oriented Architecture allows us to manage the usage (delivery,
+  acquisition, consumption, and so on) in terms of, and in sets of, related
+  services.
+  - Like objects and components, services represent natural building blocks
+  that allow us to organize capabilities in ways that are familiar to us.
+  - Similarly to objects and components, a service is a fundamental building
+  block that
+    1. Combines information and behavior.
+    2. Hides the internal workings from outside intrusion.
+    3. Presents a relatively simple interface to the rest of the organism.
+
+Taken from this link
+https://msdn.microsoft.com/en-us/library/aa480021.aspx
+***
+
+<!-- Architecture
+------------------------->
+Look Into Service Oriented Architecture Model of structuring a project.
+A service has four properties according to one of many definitions of SOA.
+1. It logically represents a business activity with a specified outcome.
+2. It is self-contained.
+3. It is a black box for its consumers.
+4. It may consist of other underlying services.
 
 <!-- RESTful API
--------------------------->
+------------------------>
 - RESTful API is a way to transact with a backend using HTTP transactions.
 - We use a series of calls like GET,POST,PUT, and DELETE with an HTML address
 to transact with our backend and its data.
@@ -39,7 +134,7 @@ new data then, we use POST. If we need to update data, we use PUT. And finally
 DELETE. Well if you need to delete data.
 
 <!-- ES6
--------------------------->
+---------------->
 Template strings ex. res.send(`Node and express server is running on port ${PORT}`)
 
 <!-- Git Workflows
@@ -50,20 +145,20 @@ helpful in better understanding on how to use Git.
 
 
 <!-- package.json dependencies
--------------------------->
+-------------------------------------->
 - Nodemon is basically a package that allows us to refresh the server
 automatically whenever you make changes to your server as opposed to have to
 shut it down and start it over to see your changes.
 
 
 <!-- Creating Mock Data
--------------------------->
+------------------------------->
 For reference we can use this to create fake data. Maybe take a look into it and
 see if it might be useful.
   - https://mockaroo.com/
 
 <!-- Read these Articles
--------------------------->
+-------------------------------->
 https://medium.com/@tommybernaciak/react-and-flux-for-beginners-821ef3d4d9fd
 
 - This is the website for the tutorial that we where following with the kung fu

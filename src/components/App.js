@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Link
+  Switch
 } from 'react-router-dom';
 
 /* Pages */
 import SignIn from './SignIn';
-import AccountPage from './AccountPage';
+import AccountPage from './Account/AccountPage';
 /* Components */
 import HeaderNav from './HeaderNav';
 import DisplayBook from './DisplayBook';
@@ -23,7 +22,7 @@ class App extends Component {
           <Switch>
             <Route path="/signin" component={SignIn} />
             <Route path="/accountpage" component={AccountPage} />
-            <Route exact path="/" render={(props) =>(
+            <Route exact path="/" render={() =>(
               /*The Main Part Of the Website should go inside of <main></main> */
               <main>
                 <div className="container">
@@ -34,7 +33,7 @@ class App extends Component {
                   )}
                 </div>
               </main>
-              )} />
+            )} />
           </Switch>
           <FooterSection />
         </div>

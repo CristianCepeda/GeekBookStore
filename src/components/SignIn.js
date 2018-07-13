@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class SignIn extends Component {
   render() {
@@ -87,7 +83,7 @@ class SignIn extends Component {
         </div>
       </div>
     );
-  };
-};
+  }
+}
 
 export default SignIn;

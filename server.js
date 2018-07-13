@@ -32,6 +32,7 @@ server.get('/', (req, res) => {
   });
 });
 
+/* This is using our index.js file inside the api folder */
 server.use('/', apiRouter);
 
 /* Side note -- We should manage static assets separately from the node server,
