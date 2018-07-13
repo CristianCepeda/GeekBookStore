@@ -58,7 +58,7 @@ References
   models.
 
   - Picture as if your putting the information in there own tables. So it would look
-  like this. And youll be refrencing the tables by the <ObjectID1>
+  like this. And you'll be referencing the tables by the <ObjectID1>
 
       User Document                    Contact Document
 {                           |   {
@@ -66,5 +66,3 @@ References
  username: "123xyz",        |     phone: "123-212-122",
                             |     email: "xyz@example.com"
 }                           |   }
-
-  - mongod
