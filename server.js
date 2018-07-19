@@ -1,5 +1,7 @@
 import config from './config';
 import apiRouter from './api';
+import apiBook from './api/book';
+import bookPageRoute from './src/components/bookPage';
 import sassMiddleware from 'node-sass-middleware';
 import path from 'path';
 
@@ -27,7 +29,11 @@ server.get('/', (req, res) => {
     content: 'This is content from server.js'
   });
 });
-server.use('/api',apiRouter);
+
+server.use('/',apiRouter);
+server.use('/',apiBook);
+
+
 /* Side note -- We should manage static assets separately from the node server,
 we could use instead NGINX
 
