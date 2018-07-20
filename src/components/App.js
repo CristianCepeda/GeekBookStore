@@ -33,9 +33,9 @@ class App extends Component {
                     <DisplayBook key={book.id} {...book}/>
                   )}
                 </div>
-                /*<div className="container">*/
-                /*  <CommentSec />*/
-              /*  </div>*/
+                <div className="container">
+                  <CommentSec />
+                </div>
               </main>
             )} />
           </Switch>
