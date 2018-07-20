@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+// import axios from 'axios';
 
 class LoginInfo extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      username: '',
+      password: ''
+    };
+
     this.updateUsername = this.updateUsername.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
-
-    this.state = {username: '', password: ''};
-
   }
 
-  /*
-    - These are Event Handler functions. They will update the state once
-    onChange is used.
-  */
   updateUsername(evt){
     this.setState({
       username: evt.target.value
@@ -23,6 +23,13 @@ class LoginInfo extends Component {
     this.setState({
       password: evt.target.value
     });
+  }
+
+  componentDidMount() {
+    this.setState = {
+      username: this.props.username,
+      password: this.props.password
+    };
   }
 
   render() {
@@ -50,5 +57,10 @@ class LoginInfo extends Component {
     );
   }
 }
+
+LoginInfo.propTypes = {
+  username: PropTypes.string,
+  password: PropTypes.string
+};
 
 export default LoginInfo;
