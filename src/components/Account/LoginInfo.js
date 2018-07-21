@@ -29,7 +29,7 @@ class LoginInfo extends Component {
   updateLoginInfo(evt){
     var UPDATE_THIS_ID = '5b52aee139cf6e9029ec6486';
     evt.preventDefault();
-    axios.put(`/account/${UPDATE_THIS_ID}/login`, {
+    axios.put(`/user/${UPDATE_THIS_ID}/login`, {
       username: this.state.username,
       password: this.state.password})
       .catch(function(error){
@@ -38,7 +38,7 @@ class LoginInfo extends Component {
   }
   componentDidMount() {
     var UPDATE_THIS_ID = '5b52aee139cf6e9029ec6486';
-    axios.get(`http://localhost:8080/account/${UPDATE_THIS_ID}`)
+    axios.get(`/user/${UPDATE_THIS_ID}/login`)
       .then(function(res){
         this.setState({
           username: res.data.username,
