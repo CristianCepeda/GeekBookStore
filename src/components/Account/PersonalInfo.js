@@ -28,6 +28,16 @@ class PersonalInfo extends Component {
         </div>
         <div className="card-body">
           <form>
+            <div className="form-row">
+              <div className="form-group col">
+                <label htmlFor="userFirstName">First Name:</label>
+                <input id="userFirstName" className="form-control" type="text" placeholder="First Name" />
+              </div>
+              <div className="form-group col">
+                <label htmlFor="userLastName">Last Name:</label>
+                <input id="userLastName" className="form-control" type="text" placeholder="Last Name" />
+              </div>
+            </div>
             <div className="form-group">
               <label htmlFor="userEmail">Email:</label>
               <input id="userEmail" className="form-control" type="email" placeholder="Email" />

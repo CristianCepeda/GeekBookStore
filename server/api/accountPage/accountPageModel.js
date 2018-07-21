@@ -5,29 +5,33 @@ var AccountPageSchema = new Schema({
   email:{
     type: String,
     required: true,
-    unique:true
+    unique: true
   },
+
   username:{
     type: String,
     required: true,
-    unique:true
+    unique: true
   },
+
   password:{
     type: String,
     required: true
   },
+
   name:{
-    firstname: {
+    firstname:{
       type: String,
       required: true
     },
-    lastname: {
+    lastname:{
       type: String,
       required: true
     }
   },
+
   address:{
-    street: {
+    street:{
       type: String,
       required: true
     },
@@ -35,11 +39,11 @@ var AccountPageSchema = new Schema({
       type: String,
       required: true
     },
-    state: {
+    state:{
       type: String,
       required: true
     },
-    zipcode: {
+    zipcode:{
       type: Number,
       required: true
     }

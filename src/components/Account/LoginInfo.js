@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 // import axios from 'axios';
 
 class LoginInfo extends Component {
@@ -12,6 +13,7 @@ class LoginInfo extends Component {
 
     this.updateUsername = this.updateUsername.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
+    this.updateLoginInfo = this.updateLoginInfo.bind(this);
   }
 
   updateUsername(evt){
@@ -24,12 +26,27 @@ class LoginInfo extends Component {
       password: evt.target.value
     });
   }
+  updateLoginInfo(evt){
+    var userID = '5b51f8ad6134227098d02786';
+    evt.preventDefault();
+    axios.put(`/account/${userID}/login`, {
+      username: this.state.username,
+      password: this.state.password})
+      .catch(function(error){
+        console.log(error);
+      });
+  }
 
   componentDidMount() {
-    this.setState = {
-      username: this.props.username,
-      password: this.props.password
-    };
+    var userID = '5b51f8ad6134227098d02786';
+    axios.get(`http://localhost:8080/account/${userID}`)
+      .then(function(res){
+        this.setState({
+          username: res.data.username,
+          password: res.data.password
+          // nickname: res.data.nickname
+        });
+      }.bind(this));
   }
 
   render() {
@@ -39,7 +56,7 @@ class LoginInfo extends Component {
           <h5>GeekBookStore Login Information</h5>
         </div>
         <div className="card-body">
-          <form>
+          <form onSubmit={this.updateLoginInfo}>
             <div className="form-row">
               <div className="form-group col">
                 <label htmlFor="userName">Username:</label>
