@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Comment from './Comment';
+
 const CommenNode = (user) => (
   <div className="DisplayCommentPreview">
     <div>

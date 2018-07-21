@@ -7,7 +7,7 @@ class CommentForm extends Component {
     this.handleUserChange = this.handleUserChange.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
 
-    this.state = {username: '', password: ''};
+    this.state = {user: '', text: ''};
   }
 
   getInitialState() {

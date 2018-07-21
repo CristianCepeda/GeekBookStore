@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 
 import Comment from './Comment';
+import data from '../../assets/data/schemaUSA';
+var states = data.states;
 
 class CommentList extends Component {
+
 
   render() {
     return(
       <div className="commentList">
-      Yeahhhh I am a CommentList.
       <Comment user="Kevin Kim">Nice, Comment Box</Comment>
-      <Comment user="Kevin Kim">Sometimes I talk to myself</Comment>
+      <Comment user="Tokiomi">Breakfast</Comment>
       </div>
 
     );
