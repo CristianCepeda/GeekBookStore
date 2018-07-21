@@ -2,6 +2,9 @@ import express from 'express';
 import apiRouter from './api';
 import authRouter from './auth/routes';
 import config from '../config';
+/*Vic's*/
+import apiBook from './api/book';
+import apiAuthor from './api/author';
 
 const server = express();
 
@@ -33,6 +36,9 @@ server.use(express.static('public'));
 /* This is using our index.js file inside the api folder */
 server.use('/', apiRouter);
 server.use('/auth', authRouter);
+/*Vic's*/
+server.use('/',apiBook);
+server.use('/',apiAuthor);
 
 /* Instead of listening to a single request event, an express server also
 handles server side routing for us. */
