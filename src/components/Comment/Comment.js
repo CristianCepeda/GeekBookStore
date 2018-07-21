@@ -3,25 +3,26 @@ import {Link} from 'react-router-dom';
 
 
 class Comment extends Component {
+
+  constructor(props){
+    super(props);
+    this.props = {
+      id: '',
+      user: '',
+      children: ''
+    };
+  }
+
   render() {
     return(
-
-      var Comment = React.createClass({
-        render: function() {
-          return (
-            <div className="comment">
-              <h2 className="commentAuthor">
-                {this.props.author}
-              </h2>
-              {this.props.children}
-            </div>
-          );
-        }
-      });
-
-
+      <div className="comment">
+        <h2 className="commentAuthor">
+          {this.props.user}
+        </h2>
+        {this.props.children}
+      </div>
     );
   }
 }
 
-export default CommentSec;
+export default Comment;

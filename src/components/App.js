@@ -12,7 +12,7 @@ import AccountPage from './Account/AccountPage';
 import HeaderNav from './HeaderNav';
 import DisplayBook from './DisplayBook';
 import FooterSection from './FooterSection';
-import CommentSec from './CommentSec';
+import CommentBox from './Comment/CommentBox';
 
 class App extends Component {
   render() {
@@ -34,7 +34,7 @@ class App extends Component {
                   )}
                 </div>
                 <div className="container">
-                  <CommentSec />
+                  <CommentBox />
                 </div>
               </main>
             )} />
