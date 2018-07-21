@@ -29,7 +29,15 @@ router.post('/', user_controller.postNewUser);
     ----------------------------------------------------------------------*/
 // GIVE BACK A JSON OBJECT OF THE USER REQUEST WITH THAT SPECIFIC [ ObjectId ]
 router.get('/:id/login', user_controller.get_UserData);
+// SEND USERS PASSED UPDATED CHANGES INTO THE DATABASE
 router.put('/:id/login', user_controller.put_UserLoginInfo);
-//
-
+/* -------------------- UPDATE THE THINGS BELOW --------------------------
+    | You will have to update these later so that it only queries the
+    | necessary information and it doesn't send back unnecessary information
+    | or information that wasn't requested.
+    ----------------------------------------------------------------------*/
+router.get('/:id/nickname', user_controller.get_UserData);
+router.put('/:id/nickname', user_controller.put_UserLoginInfo);
+router.get('/:id/personalinfo', user_controller.get_UserData);
+router.put('/:id/personalinfo', user_controller.put_UserLoginInfo);
 export default router;

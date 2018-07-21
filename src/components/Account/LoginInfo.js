@@ -27,7 +27,7 @@ class LoginInfo extends Component {
     });
   }
   updateLoginInfo(evt){
-    var UPDATE_THIS_ID = '5b52aee139cf6e9029ec6486';
+    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
     evt.preventDefault();
     axios.put(`/user/${UPDATE_THIS_ID}/login`, {
       username: this.state.username,
@@ -37,7 +37,7 @@ class LoginInfo extends Component {
       });
   }
   componentDidMount() {
-    var UPDATE_THIS_ID = '5b52aee139cf6e9029ec6486';
+    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
     axios.get(`/user/${UPDATE_THIS_ID}/login`)
       .then(function(res){
         this.setState({

@@ -1,6 +1,6 @@
 var _ = require('lodash');
 var User = require('./userModel');
-// IF USER FOUND BY ID THEN ATTACH HIM/HER TO [ req.user ] 
+// IF USER FOUND BY ID THEN ATTACH HIM/HER TO [ req.user ]
 exports.params = function(req,res,next,id){
   User.findById(id)
     .then(function (user){
