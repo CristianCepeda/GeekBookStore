@@ -7,15 +7,14 @@ import {
  //import HarryPotterPNG from "./BookPageComps/HarryPotter.png"
 
 
-class BookImage extends Component{
-render() {
+const BookImage = ({Url}) => {
+  console.log('Received url', Url)
   return(
     <div>
-    <img src="https://i.imgur.com/oToUE4P.png" alt="Book image" width="500" height="600"/>
+    <img src={Url} alt="Book image" width="300" height="400"/>
     </div>
   );
-};
-};
+}
 
 
 export default BookImage

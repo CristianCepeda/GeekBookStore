@@ -16,10 +16,29 @@ MongoClient.connect(uri, function(err, db) {
 })
 
 router.get('/book', (req, res, next) => {
-  res.status(200).json({
-    message: "Get requests?? to /book"
-  })
-});
+  let Books = {};
+    mdb.collection('Books').find({})
+       .project({
+         id: 1,
+         Name: 1,
+         Author: 1,
+         Url: 1,
+         Rating: 1,
+         Price: 1,
+         Description: 1
+       })
+       .each((err, Book) => {
+         assert.equal(null, err);
+
+         if (!Book) { // no more contests
+           res.send( Books );
+           return;
+         }
+
+         Books[Book.id] = Book;
+       });
+  });
+
 
 
 router.get('/book/:bookIds', (req, res) => {
@@ -40,10 +59,5 @@ router.get('/book/:bookIds', (req, res) => {
 
 
 
-router.get('/bookPage', function (req, res) {
-  res.render('index', {
-    content: 'This is content from server.js'
-  });
-  });
 
 export default router;

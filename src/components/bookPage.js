@@ -12,46 +12,51 @@ import ProductDescription from "./BookPageComps/ProductDescription";
 
 
 class bookPage extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      bookUrl: '',
-      name: '',
-      productDescription: '',
-      relatedBooks: [
-        {
-          imageUrl: '',
-          id: ''
-        }
-      ]
-    }
+      bookId: '',
+      Url: '',
+      Name: '',
+      Description: '',
+      Price: ''
+      }
   }
   componentDidMount() {
-    fetch(`http://localhost:8080/book/1`).then(results => {
+    const { bookId } = this.props.match.params
+    fetch(`http://localhost:8080/book/${bookId}`).then(results => {
       return results.json()
     }).then(data => {
-      const name = data.BookArray[1].Name
+      console.log('data', data)
+      const { Name, Url, Price, Rating, Description } = data.BookArray[bookId]
+      console.log('Book URL:', Url)
       this.setState({
-          name
+          Name,
+          Url,
+          Price,
+          Rating,
+          Description
       })
-      console.log(data.BookArray[1].Name)
     })
   }
+
   render() {
-    if (!this.state.name) {
+    if (!this.state.Name) {
       return <p>Loading...</p>
     }
 
     return(
 
       <div className="container">
-        <TitleHeader name={this.state.name}></TitleHeader>
+        <TitleHeader name={this.state.Name}></TitleHeader>
+        {this.state.Description}
+
         <div className="row">
           <div className="col-lg">
-          <BookImage></BookImage>
+          <BookImage Url={this.state.Url}></BookImage>
           </div>
           <div className="col-md">
-          <ProductDescription price={'19.99'}></ProductDescription>
+          <ProductDescription price={this.state.Price} rating={this.state.Rating} description={this.state.Description} ></ProductDescription>
           </div>
         </div>
         <div className="row">
