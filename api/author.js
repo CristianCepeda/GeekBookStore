@@ -15,45 +15,43 @@ MongoClient.connect(uri, function(err, db) {
   mdb = db.db("Vic")
 })
 
-router.get('/book', (req, res, next) => {
-  let Books = {};
-    mdb.collection('Books').find({})
+router.get('/author', (req, res, next) => {
+  let Authors = {};
+    mdb.collection('Authors').find({})
        .project({
-         id: 1,
+         AuthId: 1,
          Name: 1,
-         Author: 1,
-         Url: 1,
-         Rating: 1,
-         Price: 1,
-         Description: 1
+         Bio: 1
        })
-       .each((err, Book) => {
+       .each((err, Author) => {
          assert.equal(null, err);
 
-         if (!Book) { 
-           res.send( Books );
+         if (!Author) {
+           res.send( Authors );
            return;
          }
 
-         Books[Book.id] = Book;
+         Authors[Author.id] = Author;
        });
+       console.log('Authors:', Authors)
+
   });
 
 
 
-router.get('/book/:bookIds', (req, res) => {
-  const BookId = req.params.bookIds
-  let BookArray = {};
-  mdb.collection('Books').find({ 'id': BookId })
-     .each((err, Book) => {
+router.get('/author/:authorId', (req, res) => {
+  const AuthorId = req.params.authorId
+  let AuthorArray = {};
+  mdb.collection('Authors').find({ 'AuthId': AuthorId })
+     .each((err, Author) => {
        assert.equal(null, err);
 
-       if (!Book) { // no more names
-         res.send({ BookArray });
+       if (!Author) { // no more names
+         res.send({ AuthorArray });
          return;
        }
 
-       BookArray[Book.id] = Book;
+       AuthorArray[Author.id] = Author;
      });
 });
 

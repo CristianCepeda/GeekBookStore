@@ -18,6 +18,7 @@ class bookPage extends Component {
       bookId: '',
       Url: '',
       Name: '',
+      Rating: '',
       Description: '',
       Price: ''
       }
@@ -49,8 +50,6 @@ class bookPage extends Component {
 
       <div className="container">
         <TitleHeader name={this.state.Name}></TitleHeader>
-        {this.state.Description}
-
         <div className="row">
           <div className="col-lg">
           <BookImage Url={this.state.Url}></BookImage>
@@ -58,9 +57,6 @@ class bookPage extends Component {
           <div className="col-md">
           <ProductDescription price={this.state.Price} rating={this.state.Rating} description={this.state.Description} ></ProductDescription>
           </div>
-        </div>
-        <div className="row">
-          <RelatedBooksCarousel></RelatedBooksCarousel>
         </div>
       </div>
     );

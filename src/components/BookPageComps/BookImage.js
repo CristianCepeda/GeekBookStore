@@ -11,8 +11,17 @@ const BookImage = ({Url}) => {
   console.log('Received url', Url)
   return(
     <div>
-    <img src={Url} alt="Book image" width="300" height="400"/>
+
+      <a href="#openModal">
+        <img src={Url} width="400" height="500"></img>
+      </a>
+      <div id="openModal" class="modalDialog">
+          <div>	<a href="#close" title="Close" class="close">X</a> <div>
+           <img src={Url}></img>
+      </div>
     </div>
+   </div>
+  </div>
   );
 }
 

@@ -10,14 +10,14 @@ import {
 //
 //   )
 // }
-const ProductDescription = ({price},{rating},{description}) => {
+const ProductDescription = ({price, rating, description}) => {
   return(
     <div>
       <p>
       <div class="card" styles="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">Price</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{$price}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">${price}</h6>
           <Link to="/" className="btn-success btn-sm">Add to Cart</Link>
 
 
@@ -29,7 +29,7 @@ const ProductDescription = ({price},{rating},{description}) => {
         <div class="card" styles="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">Rating</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{$rating}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{rating}</h6>
 
 
             <p>
@@ -60,7 +60,7 @@ const ProductDescription = ({price},{rating},{description}) => {
 
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body">
-              {$description}
+              {description}
               </div>
             </div>
           </div>

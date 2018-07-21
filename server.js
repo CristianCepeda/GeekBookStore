@@ -1,6 +1,8 @@
 import config from './config';
 import apiRouter from './api';
 import apiBook from './api/book';
+import apiAuthor from './api/author';
+
 import bookPageRoute from './src/components/bookPage';
 import sassMiddleware from 'node-sass-middleware';
 import path from 'path';
@@ -32,6 +34,8 @@ server.get('/', (req, res) => {
 
 server.use('/',apiRouter);
 server.use('/',apiBook);
+server.use('/',apiAuthor);
+
 
 
 /* Side note -- We should manage static assets separately from the node server,
