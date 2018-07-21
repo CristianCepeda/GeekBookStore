@@ -16,7 +16,7 @@ router.get('/signin', function(req,res){
   });
 });
 
-router.post('/signin', user_controller.postNewUser);
+router.post('/createaccount', user_controller.postNewUser);
 
 // ************** CAN BE USED FOR LATER AUTHENTICATION **************
 /* Before we send back a jwt, lets check the password and username match

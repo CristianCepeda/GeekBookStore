@@ -38,19 +38,18 @@ exports.put_UserLoginInfo = function(req,res,next){
 
 
 
-
-/*  ----------------------------------------------------------------------
-    | This route is being used by [ http://localhost:8080/auth/signin ]
-    | in the create user tab.
-    ----------------------------------------------------------------------*/
+// POST REQUEST TO CREATE A NEW USER IN THE DATABASE
+/*-----------------------------------------------------------------------
+ | This route is being used by [ http://localhost:8080/auth/createaccount ]
+ | in the create user tab.
+ -----------------------------------------------------------------------*/
 exports.postNewUser = function(req,res,next){
+/*-----------------------------------------------------------------------
+ | Since the field names are the same inside the component and in the user
+ | model then we can simply just use req.body instead of trying to initialize
+ | them indivdually
+ -----------------------------------------------------------------------*/
   var newUser = new User(req.body);
-  // var newUser = new User({
-  //   firstname: req.body.firstname,
-  //   lastname: req.body.lastname,
-  //   username: req.body.username,
-  //   password: req.body.password
-  // });
   newUser.save(function(err,user){
     if(err){return next(err);}
     console.log('you where successful in creating the user');

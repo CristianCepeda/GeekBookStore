@@ -5,10 +5,14 @@ import axios from 'axios';
 class TabSignIn extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      username: '',
+      password: ''
+    };
+
     this.updateUsername = this.updateUsername.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
     this.signUserIn = this.signUserIn.bind(this);
-    this.state = {username: '', password: ''};
   }
 
   updateUsername(evt){
@@ -24,15 +28,15 @@ class TabSignIn extends Component {
 
   signUserIn(evt){
     evt.preventDefault();
-
+    let URL = 'http://localhost:8080/auth/signin';
     const user = {
       username: this.state.username,
       password: this.state.password
     };
 
-    /* URL = 'http://localhost:8080/signin' */
 
-    axios.post('/signin', { user })
+
+    axios.post(URL, { user })
       .then(function (response) {
         console.log(response);
       })

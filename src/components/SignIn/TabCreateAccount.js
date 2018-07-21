@@ -41,7 +41,7 @@ class TabCreateAccount extends Component {
 
   createNewAccount(evt){
     evt.preventDefault();
-    axios.post('/auth/signin', {
+    axios.post('/auth/createaccount', {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       username: this.state.username,
