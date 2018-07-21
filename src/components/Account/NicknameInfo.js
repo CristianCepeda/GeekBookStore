@@ -1,20 +1,38 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class NicknameInfo extends Component {
   constructor(props){
     super(props);
-    this.updateNickname = this.updateNickname.bind(this);
-
     this.state = {nickname: ''};
-  }
 
-  // This is what's called Event Handlers ... they are essentially or are
-  // functions to update the state once onChange is used.
+    this.updateNickname = this.updateNickname.bind(this);
+    this.updateNicknameInfoForm = this.updateNicknameInfoForm.bind(this);
+  }
 
   updateNickname(evt){
     this.setState({
       nickname: evt.target.value
     });
+  }
+  updateNicknameInfoForm(evt){
+    var UPDATE_THIS_ID = '5b52aee139cf6e9029ec6486';
+    evt.preventDefault();
+    axios.put(`/account/${UPDATE_THIS_ID}/login`, {
+      nickname: this.state.nickname
+    })
+      .catch(function(error){
+        console.log(error);
+      });
+  }
+  componentDidMount() {
+    var UPDATE_THIS_ID = '5b52aee139cf6e9029ec6486';
+    axios.get(`http://localhost:8080/account/${UPDATE_THIS_ID}`)
+      .then(function(res){
+        this.setState({
+          nickname: res.data.nickname
+        });
+      }.bind(this));
   }
 
   render() {
@@ -24,7 +42,7 @@ class NicknameInfo extends Component {
           <h5>Book Rating and Commenting Information</h5>
         </div>
         <div className="card-body">
-          <form>
+          <form onSubmit={this.updateNicknameInfoForm}>
             <div className="form-row">
               <div className="form-group col">
                 <label htmlFor="userNickname">Nickname:</label>

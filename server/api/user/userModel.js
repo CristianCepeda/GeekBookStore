@@ -5,7 +5,8 @@ var UserSchema = new Schema({
   firstname:{type:String, required: true},
   lastname:{type:String, required: true},
   username:{type:String, required: true, unique:true},
-  password:{type:String, required: true}
+  password:{type:String, required: true},
+  nickname:{type:String, unique:true}
 });
 
 UserSchema.methods = {

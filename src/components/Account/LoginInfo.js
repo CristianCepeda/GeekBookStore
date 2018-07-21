@@ -27,19 +27,18 @@ class LoginInfo extends Component {
     });
   }
   updateLoginInfo(evt){
-    var userID = '5b51f8ad6134227098d02786';
+    var UPDATE_THIS_ID = '5b52aee139cf6e9029ec6486';
     evt.preventDefault();
-    axios.put(`/account/${userID}/login`, {
+    axios.put(`/account/${UPDATE_THIS_ID}/login`, {
       username: this.state.username,
       password: this.state.password})
       .catch(function(error){
         console.log(error);
       });
   }
-
   componentDidMount() {
-    var userID = '5b51f8ad6134227098d02786';
-    axios.get(`http://localhost:8080/account/${userID}`)
+    var UPDATE_THIS_ID = '5b52aee139cf6e9029ec6486';
+    axios.get(`http://localhost:8080/account/${UPDATE_THIS_ID}`)
       .then(function(res){
         this.setState({
           username: res.data.username,
