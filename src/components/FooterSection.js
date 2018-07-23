@@ -13,14 +13,13 @@ class FooterSection extends Component {
             </div>
             <div className="col">
               <p>Add SightMap</p>
-              <Link to="/accountpage">Account</Link>
+              <Link to="/account">Account</Link>
             </div>
             <div className="col">
-              <Link to="/">Contact</Link>
-              <p>For contact share the people that contributed to the website</p>
+              <Link to="/contact">Contact</Link>
             </div>
             <div className="col">
-              <Link to="/">About</Link>
+              <Link to="/about">About</Link>
               <p>What the website is about, maybe also include what we used and a link to the github account for reference</p>
             </div>
           </div>

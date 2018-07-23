@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import axios from 'axios';
+// import axios from 'axios';
 
 class LoginInfo extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      username: '',
+      password: ''
+    };
+
     this.updateUsername = this.updateUsername.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
-
-    this.state = {username: '', password: ''};
-
+    this.updateLoginInfo = this.updateLoginInfo.bind(this);
   }
 
-  /*
-    - These are Event Handler functions. They will update the state once
-    onChange is used.
-  */
   updateUsername(evt){
     this.setState({
       username: evt.target.value
@@ -24,6 +26,27 @@ class LoginInfo extends Component {
       password: evt.target.value
     });
   }
+  updateLoginInfo(evt){
+    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
+    evt.preventDefault();
+    axios.put(`/user/${UPDATE_THIS_ID}/login`, {
+      username: this.state.username,
+      password: this.state.password})
+      .catch(function(error){
+        console.log(error);
+      });
+  }
+  componentDidMount() {
+    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
+    axios.get(`/user/${UPDATE_THIS_ID}/login`)
+      .then(function(res){
+        this.setState({
+          username: res.data.username,
+          password: res.data.password
+          // nickname: res.data.nickname
+        });
+      }.bind(this));
+  }
 
   render() {
     return(
@@ -32,7 +55,7 @@ class LoginInfo extends Component {
           <h5>GeekBookStore Login Information</h5>
         </div>
         <div className="card-body">
-          <form>
+          <form onSubmit={this.updateLoginInfo}>
             <div className="form-row">
               <div className="form-group col">
                 <label htmlFor="userName">Username:</label>
@@ -50,5 +73,10 @@ class LoginInfo extends Component {
     );
   }
 }
+
+LoginInfo.propTypes = {
+  username: PropTypes.string,
+  password: PropTypes.string
+};
 
 export default LoginInfo;

@@ -17,7 +17,7 @@ class HeaderNav extends Component {
           </div>
 
           <div className="col-1 d-flex justify-content-end">
-            <Link to="/signin" className="btn btn-sm btn-outline-secondary">Sign In</Link>
+            <Link to="/auth/signin" className="btn btn-sm btn-outline-secondary">Sign In</Link>
           </div>
         </div>
       </header>

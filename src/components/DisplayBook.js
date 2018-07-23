@@ -1,17 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
+
+import { Link } from 'react-router-dom'
 
 const DisplayBook = (book) => (
-  <div className="DisplayBookPreview">
-    <div>
-      Title: {book.title}
-      <br/>
-      Author: {book.author}
-      <br/>
-      Publisher: {book.publisher}
-      <br/>
-      ISBN: {book.isbn}
-    </div>
-  </div>
+  <span className="DisplayBookPreview">
+      <Link to={`/bookpage/${book.id}`}> <img src={book.Url} alt="Book image" width="100" height="150"/> </Link>
+  </span>
 );
 
 
