@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 /* Components */
 import LoginInfo from './LoginInfo';
 import NicknameInfo from './NicknameInfo';
-import PaymentInfo from './PaymentInfo';
+import PaymentInfo from './PaymentSection/PaymentInfo';
 import PersonalInfo from './PersonalInfo';
 
 class AccountPage extends Component {

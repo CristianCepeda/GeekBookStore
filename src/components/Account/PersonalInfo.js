@@ -76,7 +76,7 @@ class PersonalInfo extends Component {
   }
   // UPDATE AJAX REQUEST FUNCTION
   updatePersonalInfo(evt){
-    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
+    var UPDATE_THIS_ID = '5b579485aed76205916aea31';
     evt.preventDefault();
     axios.put(`/user/${UPDATE_THIS_ID}/personalinfo`, {
       firstname: this.state.firstname,
@@ -92,7 +92,7 @@ class PersonalInfo extends Component {
       });
   }
   componentDidMount() {
-    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
+    var UPDATE_THIS_ID = '5b579485aed76205916aea31';
     axios.get(`/user/${UPDATE_THIS_ID}/personalinfo`)
       .then(function(res){
         this.setState({

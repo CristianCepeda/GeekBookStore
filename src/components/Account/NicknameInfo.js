@@ -16,7 +16,7 @@ class NicknameInfo extends Component {
     });
   }
   updateNicknameInfoForm(evt){
-    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
+    var UPDATE_THIS_ID = '5b579485aed76205916aea31';
     evt.preventDefault();
     axios.put(`/user/${UPDATE_THIS_ID}/nickname`, {
       nickname: this.state.nickname
@@ -26,7 +26,7 @@ class NicknameInfo extends Component {
       });
   }
   componentDidMount() {
-    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
+    var UPDATE_THIS_ID = '5b579485aed76205916aea31';
     axios.get(`/user/${UPDATE_THIS_ID}/nickname`)
       .then(function(res){
         this.setState({
