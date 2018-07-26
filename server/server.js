@@ -10,8 +10,8 @@ const server = express();
 
 // Trying to connect to mongodb with mongoose
 var mongoose = require('mongoose');
-mongoose.connect(config.mongodbUri);
-mongoose.Promise = global.Promise;
+mongoose.connect(config.mongodbUri); //connecting to the database
+mongoose.Promise = global.Promise; //for use promise
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
@@ -39,6 +39,8 @@ server.use('/auth', authRouter);
 /*Vic's*/
 server.use('/',apiBook);
 server.use('/',apiAuthor);
+
+//endpoint = url
 
 /* Instead of listening to a single request event, an express server also
 handles server side routing for us. */

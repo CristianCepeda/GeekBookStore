@@ -11,10 +11,10 @@ When ever they hit this route they will want to either
 So lets display the form page where they can then decide
   */
 router.get('/signin', function(req,res){
-  res.render('index', {
+  res.render('index', { //show the website
     content: 'Loading Sign In Page'
   });
-});
+}); //give me some data when I hit this route.
 
 router.post('/createaccount', user_controller.postNewUser);
 

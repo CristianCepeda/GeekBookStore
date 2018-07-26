@@ -1,3 +1,4 @@
+//importing the routes
 import express from 'express';
 import homePageRoutes from './homePage/homePageRoutes';
 import accountPageRoutes from './accountPage/accountPageRoutes';
@@ -10,6 +11,7 @@ other properties on that object.
 const router = express.Router();
 
 /* This would be like a Service Oriented Architecture Style */
+
 router.use('/', homePageRoutes);
 router.use('/account', accountPageRoutes);
 router.use('/signin', signinPageRoutes);

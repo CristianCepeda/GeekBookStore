@@ -16,10 +16,10 @@ class TabCreateAccount extends Component {
       username: '',
       password: ''
     };
-  }
+  } //where info is going to be saved
 
   updateFirstname(evt){
-    this.setState({
+    this.setState({ //whenever this function is called, it updates the fields
       firstname: evt.target.value
     });
   }
@@ -38,14 +38,14 @@ class TabCreateAccount extends Component {
       password: evt.target.value
     });
   }
-
+// /bookpage/1/comment
   createNewAccount(evt){
     evt.preventDefault();
     axios.post('/auth/createaccount', {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       username: this.state.username,
-      password: this.state.password})
+      password: this.state.password}/*the parameters*/)//sending the information to local8080/auth/create account
       .then(function(response) {
         this.props.history.push('/');
         console.log(response);
