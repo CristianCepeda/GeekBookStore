@@ -40,4 +40,5 @@ router.get('/:id/nickname', user_controller.get_UserData);
 router.put('/:id/nickname', user_controller.put_UserLoginInfo);
 router.get('/:id/personalinfo', user_controller.get_UserData);
 router.put('/:id/personalinfo', user_controller.put_UserLoginInfo);
+// router.get('/:id/paymentinfo', user_controller.get_User);
 export default router;

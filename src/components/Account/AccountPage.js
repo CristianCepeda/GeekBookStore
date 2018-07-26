@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 /* Components */
 import LoginInfo from './LoginInfo';
 import NicknameInfo from './NicknameInfo';
-import PaymentInfo from './PaymentSection/PaymentInfo';
 import PersonalInfo from './PersonalInfo';
+import PaymentInfo from './PaymentSection/PaymentInfo';
+import ShippingInfo from './ShippingSection/ShippingInfo';
 
 class AccountPage extends Component {
   constructor(props){
@@ -46,7 +47,12 @@ class AccountPage extends Component {
             <PersonalInfo />
           </div>
           <div className="col-lg-6 my-1">
-            <PaymentInfo />
+            <div className="row mx-0">
+              <PaymentInfo />
+            </div>
+            <div className="row mx-0 my-4">
+              <ShippingInfo />
+            </div>
           </div>
         </div>
       </div>

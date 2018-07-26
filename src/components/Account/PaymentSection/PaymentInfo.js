@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import AddCardModal from './AddCardModal';
 
 class PaymentInfo extends Component {
@@ -12,6 +13,19 @@ class PaymentInfo extends Component {
         securitycode:''
       }]
     };
+  }
+
+  componentDidMount(){
+    var UPDATE_THIS_ID = '5b579485aed76205916aea31';
+    axios.get(`/user/${UPDATE_THIS_ID}/paymentinfo`)
+      .then(function(res){
+        this.setState({
+          nameoncard: res.data.nameoncard,
+          cardnumber: res.data.cardnumber,
+          expirydate: res.data.expirydate,
+          securitycode: res.data.securitycode
+        });
+      }.bind(this));
   }
 
   render() {
@@ -48,12 +62,12 @@ class PaymentInfo extends Component {
                   </div>
                 </td>
                 <td>
-                  <button type="submit" className="btn btn-sm btn-danger"><i className="icon-squared-cross"></i> Remove card</button>
+                  <button type="submit" className="btn btn-sm btn-danger"><i className="icon-squared-cross"></i> Remove Card</button>
                 </td>
               </tr>
-              <AddCardModal />
             </tbody>
           </table>
+          <AddCardModal />
         </div>
 
       </div>

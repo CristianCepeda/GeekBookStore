@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class AddCardModal extends Component {
   constructor(props){
@@ -14,6 +15,7 @@ class AddCardModal extends Component {
     this.updateCardNumber = this.updateCardNumber.bind(this);
     this.updateExpiryDate = this.updateExpiryDate.bind(this);
     this.updateSecurityCode = this.updateSecurityCode.bind(this);
+    this.createNewCreditCard = this.createNewCreditCard.bind(this);
   }
 
   updateNameOnCard(evt){
@@ -36,10 +38,20 @@ class AddCardModal extends Component {
       securitycode: evt.target.value
     });
   }
-
+  createNewCreditCard(evt){
+    evt.preventDefault();
+    axios.post('/creditcard',{
+      nameoncard: this.state.nameoncard,
+      cardnumber: this.state.cardnumber,
+      expirydate: this.state.expirydate,
+      securitycode: this.state.securitycode})
+      .then(function(response){
+        console.log(response);
+      });
+  }
   render() {
     return(
-      <form>
+      <form onSubmit={this.createNewCreditCard} >
         <button type="button" className="btn btn-secondary" data-toggle="modal" data-target="#newPaymentModal">Add New Card</button>
         <div className="modal fade" id="newPaymentModal" tabIndex="-1" role="dialog" aria-labelledby="newPaymentModalTitle" aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered" role="document">
