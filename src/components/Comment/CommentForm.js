@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class CommentForm extends Component {
 
@@ -9,16 +10,6 @@ class CommentForm extends Component {
     this.state = {text: ''};
   }
 
-  getInitialState() {
-    return {user: '', text: ''};
-  }
-
-  handleUserChange(evt) {
-    this.setState({
-      user: evt.target.value
-    });
-  }
-
   handleTextChange(evt) {
     this.setState({
       text: evt.target.value
@@ -27,31 +18,32 @@ class CommentForm extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    var author = this.state.user.trim();
-    var text = this.state.text.trim();
-    if (!text || !user) {
-      return;
+    axios.post('/bookpage/1/comment', {
+      text: this.state.firstname,}/*the parameters*/)//sending the information to local8080/auth/create account
+      .then(function(response) {
+        this.props.history.push('/');
+        console.log(response);
+      })
+      .catch(function(error){
+        console.log(error);
+      });
     }
-    this.props.onCommentSubmit({user: user, text: text});
-    this.setState({author: '', text: ''});
-  }
 
   render() {
     return(
-      <div className="commentForm">
-        <form>
+      <div className="CommentForm" id= "comment-form">
+        <form onSubmit ={this.handleSubmit}>
+          <div className="form-group">
               <input
-                type="text"
-                placeholder="Your name"
-                value={this.state.user}
-                onChange={this.handleUserChange}/>
-              <input
+                id = "inputComment"
+                className = "form-control"
                 type="text"
                 placeholder="Say something..."
                 value={this.state.text}
                 onChange={this.handleTextChange}/>
-              <input type="submit" value="Post" />
-          </form>
+            </div>
+          <button type="submit" className="btn btn-primary btn-lg btn-block p-1 mt-3">Submit</button>
+        </form>
       </div>
     );
   }

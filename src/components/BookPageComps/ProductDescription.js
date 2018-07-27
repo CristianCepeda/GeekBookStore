@@ -4,6 +4,10 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import CommentBox from '../Comment/CommentForm';
+//<div>
+//<CommentBox />
+//</div>
 
 // const ProductDescription = ({price}) => {
 //   return (
@@ -65,6 +69,25 @@ const ProductDescription = ({price, rating, description}) => {
             </div>
           </div>
          </div>
+         <br />
+
+         <div class="accordion" id="accordionExample2">
+           <div class="card">
+             <div class="card-header" id="headingTwo">
+               <h5 class="mb-0">
+                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                     Comments
+                 </button>
+               </h5>
+             </div>
+
+             <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample2">
+               <div class="card-body">
+               <CommentBox />
+               </div>
+             </div>
+           </div>
+          </div>
       </div>
 
 
