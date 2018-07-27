@@ -17,6 +17,9 @@ router.get('/signin', function(req,res){
 });
 
 router.post('/createaccount', user_controller.postNewUser);
+router.post('/newcreateaccount', user_controller.post_NewUSER);
+// router.put('/newcreateaccount', user_controller.put_UpdateNewUSER)
+// axios.put('/auth/newcreateaccount');
 
 // ************** CAN BE USED FOR LATER AUTHENTICATION **************
 /* Before we send back a jwt, lets check the password and username match

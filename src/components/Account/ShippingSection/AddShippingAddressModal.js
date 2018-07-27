@@ -19,21 +19,21 @@ class AddShippingAddressModal extends Component {
               </div>
               <div className="modal-body">
                 <div className="form-group">
-                  <label htmlFor="userAddress">Address:</label>
-                  <input  id="userAddress" className="form-control" type="text" placeholder="1234 Main St" />
+                  <label htmlFor="userShippingAddress">Address:</label>
+                  <input  id="userShippingAddress" className="form-control" type="text" placeholder="1234 Main St" />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="userAddress2">Address 2:</label>
-                  <input  id="userAddress2" className="form-control" type="text" placeholder="Apartment, studio, or floor" />
+                  <label htmlFor="userShippingAddress2">Address 2:</label>
+                  <input  id="userShippingAddress2" className="form-control" type="text" placeholder="Apartment, studio, or floor" />
                 </div>
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <label htmlFor="userCity">City:</label>
-                    <input id="userCity" className="form-control" type="text" />
+                    <label htmlFor="userShippingCity">City:</label>
+                    <input id="userShippingCity" className="form-control" type="text" />
                   </div>
                   <div className="form-group col-md-4">
-                    <label htmlFor="userState">State:</label>
-                    <select id="userState" className="form-control" >
+                    <label htmlFor="userShippingState">State:</label>
+                    <select id="userShippingState" className="form-control" >
                       <option>Choose...</option>
                       {states.map(function(state){
                         return (
@@ -45,8 +45,8 @@ class AddShippingAddressModal extends Component {
                     </select>
                   </div>
                   <div className="form-group col-md-2">
-                    <label htmlFor="inputZip">Zip:</label>
-                    <input id="inputZip" className="form-control" type="text" />
+                    <label htmlFor="inputShippingZip">Zip:</label>
+                    <input id="inputShippingZip" className="form-control" type="text" />
                   </div>
                 </div>
                 <div className="modal-footer">

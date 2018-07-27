@@ -60,7 +60,7 @@ class TabCreateAccount extends Component {
   // }
   createNewAccount(evt){
     evt.preventDefault();
-    axios.post('/auth/createaccount', {
+    axios.post('/auth/newcreateaccount', {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       username: this.state.username,
@@ -70,6 +70,7 @@ class TabCreateAccount extends Component {
         console.log(response);
         console.log(response.data._id);
       });
+    axios.put('/auth/newcreateaccount');
   }
 
   render() {

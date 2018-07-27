@@ -2,17 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-  firstname:{type:String, required: true},
-  lastname:{type:String, required: true},
-  username:{type:String, required: true, unique:true},
-  password:{type:String, required: true},
-  nickname:{type:String, unique:true},
-  email:{type:String, unique:true},
-  address:{type:String},
-  address2:{type:String},
-  city:{type:String},
-  statein:{type:String},
-  zip:{type:String}
+  logininformation:{type:Schema.Types.ObjectId, ref:'logininfo'}
 });
 
 UserSchema.methods = {
@@ -22,7 +12,7 @@ UserSchema.methods = {
   }
 };
 
-module.exports = mongoose.model('user', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
 
 /*
 nickname:{type:String, unique:true},
