@@ -14,11 +14,6 @@ var user_controller = require('./userController');
     ----------------------------------------------------------------------*/
 router.param('id', user_controller.params);
 
-router.get('/', function(req,res){
-  res.send('hello');
-});
-router.post('/', user_controller.postNewUser);
-
 /*  ----------------------------------------------------------------------
     | From the Component AccountPage the users will hit these routes
     | underneath so that they can fetch the necessary data to populate
@@ -28,17 +23,18 @@ router.post('/', user_controller.postNewUser);
     |   AND THEN WHATEVER ELSE IS ADDED
     ----------------------------------------------------------------------*/
 // GIVE BACK A JSON OBJECT OF THE USER REQUEST WITH THAT SPECIFIC [ ObjectId ]
-router.get('/:id/login', user_controller.get_UserData);
+router.get('/:id/data', user_controller.get_UserData);
 // SEND USERS PASSED UPDATED CHANGES INTO THE DATABASE
-router.put('/:id/login', user_controller.put_UserLoginInfo);
+router.put('/:id/updateinfo', user_controller.put_UserUpdate);
+router.post('/:id/createcreditcard', user_controller.post_NewCreditCard);
 /* -------------------- UPDATE THE THINGS BELOW --------------------------
     | You will have to update these later so that it only queries the
     | necessary information and it doesn't send back unnecessary information
     | or information that wasn't requested.
     ----------------------------------------------------------------------*/
-router.get('/:id/nickname', user_controller.get_UserData);
-router.put('/:id/nickname', user_controller.put_UserLoginInfo);
-router.get('/:id/personalinfo', user_controller.get_UserData);
-router.put('/:id/personalinfo', user_controller.put_UserLoginInfo);
+// router.get('/:id/nickname', user_controller.get_UserData);
+// router.put('/:id/nickname', user_controller.put_UserUpdate);
+// router.get('/:id/personalinfo', user_controller.get_UserData);
+// router.put('/:id/personalinfo', user_controller.put_UserUpdate);
 // router.get('/:id/paymentinfo', user_controller.get_User);
 export default router;

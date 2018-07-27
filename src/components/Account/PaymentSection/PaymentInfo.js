@@ -1,12 +1,34 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import config from '../../../../config';
 import AddCardModal from './AddCardModal';
+
+const DisplayCard = (card) => (
+  <tr>
+    <th scope="row">
+      <img alt="Image" src="./img/Visa_Inc._logo.svg" className="avatar avatar-sm" />
+    </th>
+    <td>
+      <span className="d-block">{card.cardnumber}</span>
+      <small className="text-muted">Exp: {card.expirydate}</small>
+    </td>
+    <td>
+      <div className="custom-control custom-radio">
+        <input id="radio1" name="payment-default" type="radio" className="custom-control-input" checked="" />
+        <label className="custom-control-label" htmlFor="radio1"></label>
+      </div>
+    </td>
+    <td>
+      <button type="submit" className="btn btn-sm btn-danger"><i className="icon-squared-cross"></i> Remove Card</button>
+    </td>
+  </tr>
+);
 
 class PaymentInfo extends Component {
   constructor(props){
     super(props);
     this.state = {
-      card: [{
+      cards: [{
         nameoncard: '',
         cardnumber: '',
         expirydate: '',
@@ -16,14 +38,11 @@ class PaymentInfo extends Component {
   }
 
   componentDidMount(){
-    var UPDATE_THIS_ID = '5b579485aed76205916aea31';
-    axios.get(`/user/${UPDATE_THIS_ID}/paymentinfo`)
+    axios.get(`/user/${config.usersObjectId}/data`)
       .then(function(res){
+        console.log(res.data);
         this.setState({
-          nameoncard: res.data.nameoncard,
-          cardnumber: res.data.cardnumber,
-          expirydate: res.data.expirydate,
-          securitycode: res.data.securitycode
+          cards: res.data.paymentinformation
         });
       }.bind(this));
   }
@@ -47,24 +66,9 @@ class PaymentInfo extends Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">
-                  <img alt="Image" src="./img/Visa_Inc._logo.svg" className="avatar avatar-sm" />
-                </th>
-                <td>
-                  <span className="d-block">•••• •••• •••• 8372</span>
-                  <small className="text-muted">Exp: 06/22</small>
-                </td>
-                <td>
-                  <div className="custom-control custom-radio">
-                    <input id="radio1" name="payment-default" type="radio" className="custom-control-input" checked="" />
-                    <label className="custom-control-label" htmlFor="radio1"></label>
-                  </div>
-                </td>
-                <td>
-                  <button type="submit" className="btn btn-sm btn-danger"><i className="icon-squared-cross"></i> Remove Card</button>
-                </td>
-              </tr>
+              {this.state.cards.map(card =>
+                <DisplayCard key={card._id} {...card}/>
+              )}
             </tbody>
           </table>
           <AddCardModal />

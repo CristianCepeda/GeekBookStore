@@ -70,7 +70,6 @@ class TabCreateAccount extends Component {
         console.log(response);
         console.log(response.data._id);
       });
-    axios.put('/auth/newcreateaccount');
   }
 
   render() {

@@ -16,8 +16,7 @@ router.get('/signin', function(req,res){
   });
 });
 
-router.post('/createaccount', user_controller.postNewUser);
-router.post('/newcreateaccount', user_controller.post_NewUSER);
+router.post('/newcreateaccount', user_controller.post_NewCreateAccountUSER);
 // router.put('/newcreateaccount', user_controller.put_UpdateNewUSER)
 // axios.put('/auth/newcreateaccount');
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import config from '../../../../config';
 
 class AddCardModal extends Component {
   constructor(props){
@@ -40,11 +41,12 @@ class AddCardModal extends Component {
   }
   createNewCreditCard(evt){
     evt.preventDefault();
-    axios.post('/creditcard',{
+    axios.post(`/user/${config.usersObjectId}/createcreditcard`, {
       nameoncard: this.state.nameoncard,
       cardnumber: this.state.cardnumber,
       expirydate: this.state.expirydate,
-      securitycode: this.state.securitycode})
+      securitycode: this.state.securitycode
+    })
       .then(function(response){
         console.log(response);
       });
