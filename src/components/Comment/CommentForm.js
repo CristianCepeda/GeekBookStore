@@ -4,10 +4,9 @@ class CommentForm extends Component {
 
   constructor(props){
     super(props);
-    this.handleUserChange = this.handleUserChange.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
 
-    this.state = {user: '', text: ''};
+    this.state = {text: ''};
   }
 
   getInitialState() {
