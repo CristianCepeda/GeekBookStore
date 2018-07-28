@@ -51,6 +51,7 @@ class AddCardModal extends Component {
         console.log(response);
       });
   }
+
   render() {
     return(
       <form onSubmit={this.createNewCreditCard} >

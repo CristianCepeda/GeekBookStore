@@ -27,6 +27,7 @@ router.get('/:id/data', user_controller.get_UserData);
 // SEND USERS PASSED UPDATED CHANGES INTO THE DATABASE
 router.put('/:id/updateinfo', user_controller.put_UserUpdate);
 router.post('/:id/createcreditcard', user_controller.post_NewCreditCard);
+router.post('/:id/createshippingaddress', user_controller.post_NewShippingInfo);
 /* -------------------- UPDATE THE THINGS BELOW --------------------------
     | You will have to update these later so that it only queries the
     | necessary information and it doesn't send back unnecessary information

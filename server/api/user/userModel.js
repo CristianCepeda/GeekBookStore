@@ -32,11 +32,19 @@ var PaymentInfoSchema = new Schema({
   securitycode: {type:Number}
 });
 
+var ShippingInfoSchema = new Schema({
+  address:{type:String},
+  address2:{type:String},
+  city:{type:String},
+  statein:{type:String},
+  zip:{type:String}
+});
 var UserSchema = new Schema({
   logininformation: LoginInfoSchema,
   nicknameinformation: NicknameInfoSchema,
   personalinformation: PersonalInfoSchema,
-  paymentinformation: [PaymentInfoSchema]
+  paymentinformation: [PaymentInfoSchema],
+  shippinginformation: [ShippingInfoSchema]
 });
 
 UserSchema.methods = {

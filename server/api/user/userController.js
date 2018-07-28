@@ -80,6 +80,20 @@ exports.post_NewCreditCard = function(req,res,next){
   });
 };
 
+exports.post_NewShippingInfo = function(req,res,next){
+  var user = req.user;
+  var newAddress = req.body;
+  console.log('THE CONTENTS OF req.body form newShippingInfor    '+ JSON.stringify(req.body));
+  user.shippinginformation.push(newAddress);
+  user.save(function (err,saved){
+    if(err){
+      next(err);
+    } else {
+      res.json(saved.toJson());
+    }
+  });
+};
+
 // var Parent = mongoose.model('Parent');
 // var parent = new Parent;
 //
