@@ -7,8 +7,7 @@ class Comment extends Component {
   constructor(props){
     super(props);
     this.props = {
-      Username: '',
-      text: ''
+      text0: ''
     };
   }
 

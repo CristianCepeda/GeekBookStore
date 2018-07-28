@@ -1,17 +1,17 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var UserSchema = new Schema({
+var CommentSchema = new Schema({
   BookId:{type:String},
-  Username:{type:String},
+  User:{type:String},
   Text:{type:String},
 });
 
-UserSchema.methods = {
+CommentSchema.methods = {
   toJson: function(){
     var obj = this.toObject();
     return obj;
   }
 };
 
-module.exports = mongoose.model('comment', UserSchema);
+module.exports = mongoose.model('comment', CommentSchema);

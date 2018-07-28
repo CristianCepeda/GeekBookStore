@@ -8,7 +8,6 @@ class CommentForm extends Component {
     this.handleTextChange = this.handleTextChange.bind(this);
 
     this.state = {
-      Username: '',
       text: ''
     };
   }

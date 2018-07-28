@@ -13,13 +13,11 @@ class CommentList extends Component {
     super(props);
     this.state = {
       BookId: '',
-      username: '',
       text: ''
     };
 
   componentDidMount() {
-     //var userID = '5b51f8ad6134227098d02786';
-     axios.get(`/bookpage/1/Comment`) //${UPDATE_THIS_BOOK_ID}
+     axios.get(`/bookpage/1/Comment`)
        .then(function(res){
          this.setState({
            text: res.data.text,
