@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import config from '../../../config';
 
 class NicknameInfo extends Component {
   constructor(props){
@@ -16,21 +17,21 @@ class NicknameInfo extends Component {
     });
   }
   updateNicknameInfoForm(evt){
-    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
     evt.preventDefault();
-    axios.put(`/user/${UPDATE_THIS_ID}/nickname`, {
-      nickname: this.state.nickname
+    axios.put(`/user/${config.usersObjectId}/updateinfo`, {
+      nicknameinformation:{
+        nickname: this.state.nickname
+      }
     })
       .catch(function(error){
         console.log(error);
       });
   }
   componentDidMount() {
-    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
-    axios.get(`/user/${UPDATE_THIS_ID}/nickname`)
+    axios.get(`/user/${config.usersObjectId}/data`)
       .then(function(res){
         this.setState({
-          nickname: res.data.nickname
+          nickname: res.data.nicknameinformation.nickname
         });
       }.bind(this));
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import config from '../../../config';
 
 /*
   - And we are making this a property of the component since the data will
@@ -76,34 +77,35 @@ class PersonalInfo extends Component {
   }
   // UPDATE AJAX REQUEST FUNCTION
   updatePersonalInfo(evt){
-    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
     evt.preventDefault();
-    axios.put(`/user/${UPDATE_THIS_ID}/personalinfo`, {
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      email: this.state.email,
-      address: this.state.address,
-      address2: this.state.address2,
-      city: this.state.city,
-      statein: this.state.statein,
-      zip: this.state.zip})
+    axios.put(`/user/${config.usersObjectId}/updateinfo`, {
+      personalinformation:{
+        firstname: this.state.firstname,
+        lastname: this.state.lastname,
+        email: this.state.email,
+        address: this.state.address,
+        address2: this.state.address2,
+        city: this.state.city,
+        statein: this.state.statein,
+        zip: this.state.zip
+      }
+    })
       .catch(function(error){
         console.log(error);
       });
   }
   componentDidMount() {
-    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
-    axios.get(`/user/${UPDATE_THIS_ID}/personalinfo`)
+    axios.get(`/user/${config.usersObjectId}/data`)
       .then(function(res){
         this.setState({
-          firstname: res.data.firstname,
-          lastname: res.data.lastname,
-          email: res.data.email,
-          address: res.data.address,
-          address2: res.data.address2,
-          city: res.data.city,
-          statein: res.data.statein,
-          zip: res.data.zip
+          firstname: res.data.personalinformation.firstname,
+          lastname: res.data.personalinformation.lastname,
+          email: res.data.personalinformation.email,
+          address: res.data.personalinformation.address,
+          address2: res.data.personalinformation.address2,
+          city: res.data.personalinformation.city,
+          statein: res.data.personalinformation.statein,
+          zip: res.data.personalinformation.zip
         });
       }.bind(this));
   }

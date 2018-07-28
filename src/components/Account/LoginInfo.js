@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import config from '../../../config';
 // import axios from 'axios';
 
 class LoginInfo extends Component {
@@ -27,22 +28,23 @@ class LoginInfo extends Component {
     });
   }
   updateLoginInfo(evt){
-    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
     evt.preventDefault();
-    axios.put(`/user/${UPDATE_THIS_ID}/login`, {
-      username: this.state.username,
-      password: this.state.password})
+    axios.put(`/user/${config.usersObjectId}/updateinfo`, {
+      logininformation:{
+        username: this.state.username,
+        password: this.state.password
+      }
+    })
       .catch(function(error){
         console.log(error);
       });
   }
   componentDidMount() {
-    var UPDATE_THIS_ID = '5b530cebd54c9fa00fe72691';
-    axios.get(`/user/${UPDATE_THIS_ID}/login`)
+    axios.get(`/user/${config.usersObjectId}/data`)
       .then(function(res){
         this.setState({
-          username: res.data.username,
-          password: res.data.password
+          username: res.data.logininformation.username,
+          password: res.data.logininformation.password
           // nickname: res.data.nickname
         });
       }.bind(this));

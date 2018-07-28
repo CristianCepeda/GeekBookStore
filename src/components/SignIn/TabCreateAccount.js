@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+// import { Redirect } from 'react-router-dom';
 
 class TabCreateAccount extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      firstname: '',
+      lastname: '',
+      username: '',
+      password: '',
+      redirect: false
+    };
+
     this.updateFirstname = this.updateFirstname.bind(this);
     this.updateLastname = this.updateLastname.bind(this);
     this.updateUsername = this.updateUsername.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
     this.createNewAccount = this.createNewAccount.bind(this);
-
-    this.state = {
-      firstname: '',
-      lastname: '',
-      username: '',
-      password: ''
-    };
+    // this.updateRouteAccount = this.updateRouteAccount.bind(this);
+    // this.renderRedirectAccount = this.renderRedirectAccount.bind(this);
+    console.log(this.props);
   }
 
   updateFirstname(evt){
@@ -38,37 +43,41 @@ class TabCreateAccount extends Component {
       password: evt.target.value
     });
   }
-
+  // updateRouteAccount = () =>{
+  //   this.setState({
+  //     redirect: true
+  //   });
+  // }
+  // updateRouteAccount(){
+  //   this.setState({
+  //     redirect : true
+  //   });
+  // }
+  // renderRedirectAccount = () => {
+  //   if (this.state.redirect){
+  //     return <Redirect to='/account' />;
+  //   }
+  // }
   createNewAccount(evt){
     evt.preventDefault();
-    axios.post('/auth/createaccount', {
+    axios.post('/auth/newcreateaccount', {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       username: this.state.username,
       password: this.state.password})
       .then(function(response) {
-        this.props.history.push('/');
+        alert('Account was created.');
         console.log(response);
-      })
-      .catch(function(error){
-        console.log(error);
+        console.log(response.data._id);
       });
   }
 
-  // axios.post('/user', {firstName: 'Fred', lastName: 'Flintstone'})
-  //   .then(function (response) {
-  //     console.log(response);
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
-
-
-
   render() {
+    // console.log(this.match);
+    // console.log(this.props);
     return(
       <div className="tab-pane fade" id="create-account" role="tabpanel" aria-labelledby="create-account-tab">
-        <form onSubmit={this.createNewAccount}>
+        <form onSubmit={this.createNewAccount} >
           <div className="form-row">
             <div className="form-group col-md-6">
               <label htmlFor="inputFirstname">First Name</label>
@@ -87,7 +96,7 @@ class TabCreateAccount extends Component {
             <label htmlFor="inputPasswordCreateAccount">Password</label>
             <input id="inputPasswordCreateAccount" className="form-control" type="password" placeholder="Password" required value={this.state.password} onChange={this.updatePassword}/>
           </div>
-          <button type="submit" className="btn btn-primary btn-lg btn-block p-1 mt-3">Submit</button>
+          <button className="btn btn-primary btn-lg btn-block p-1 mt-3" type="submit">Submit</button>
         </form>
       </div>
     );
@@ -95,32 +104,3 @@ class TabCreateAccount extends Component {
 }
 
 export default TabCreateAccount;
-
-
-// state = {
-//   name: ''
-// }
-// handleChange = event => {
-//   this.setState({ name: event.target.value });
-// }
-//
-// handleSubmit = event => {
-//   event.preventDefault();
-//
-//   const user = {
-//     name: this.state.name
-//   };
-//
-//   axios.post('https://jsonplaceholder.typicode.com/users', { user })
-//     .then(res => {
-//       console.log(res);
-//       console.log(res.data);
-//     });
-// }
-//
-//
-// axios.get('/user', { user: {ID: 12345} })
-// axios.get('/user', { params: {ID: 12345} })
-// .then(function (response) {
-//   console.log(response);
-// })

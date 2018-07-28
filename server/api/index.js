@@ -3,6 +3,7 @@ import homePageRoutes from './homePage/homePageRoutes';
 import accountPageRoutes from './accountPage/accountPageRoutes';
 import signinPageRoutes from './signinPage/signinPageRoutes';
 import userRoutes from './user/userRoutes';
+import creditCardRoutes from './creditCardInfo/creditCardRoutes';
 /* Remember that a function in javascript is just an object. So we can attach
 other properties on that object.
 */
@@ -14,6 +15,7 @@ router.use('/', homePageRoutes);
 router.use('/account', accountPageRoutes);
 router.use('/signin', signinPageRoutes);
 router.use('/user', userRoutes);
+router.use('/creditcard', creditCardRoutes);
 
 /*Victor's Routes*/
 router.get('/bookPage/:bookId', function (req, res) {

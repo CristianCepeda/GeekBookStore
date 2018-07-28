@@ -8,7 +8,8 @@ export default{
   expireTime: 24 * 60 * 10,
   secrets:{
     jwt: env.JWT || 'gumball'
-  }
+  },
+  usersObjectId: '5b5b3d56b0dff07ce3b7fdf7'
 };
 
 
