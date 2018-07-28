@@ -50,6 +50,7 @@ class AddCardModal extends Component {
       .then(function(response){
         console.log(response);
       });
+    alert('New credit card created.');
   }
 
   render() {
