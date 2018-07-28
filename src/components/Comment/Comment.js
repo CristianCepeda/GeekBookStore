@@ -7,9 +7,8 @@ class Comment extends Component {
   constructor(props){
     super(props);
     this.props = {
-      id: '',
-      user: '',
-      children: ''
+      Username: '',
+      text: ''
     };
   }
 
@@ -19,7 +18,7 @@ class Comment extends Component {
         <h2 className="commentAuthor">
           {this.props.user}
         </h2>
-        {this.props.children}
+        {this.props.text}
       </div>
     );
   }

@@ -7,7 +7,10 @@ class CommentForm extends Component {
     super(props);
     this.handleTextChange = this.handleTextChange.bind(this);
 
-    this.state = {text: ''};
+    this.state = {
+      Username: '',
+      text: ''
+    };
   }
 
   handleTextChange(evt) {
