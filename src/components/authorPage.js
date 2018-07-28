@@ -8,23 +8,19 @@ import {
 import TitleHeader from "./BookPageComps/TitleHeader";
 import BookImage from "./BookPageComps/BookImage";
 import ProductDescription from "./BookPageComps/ProductDescription";
+import DisplayBook from '../DisplayBook';
 
 
-class bookPage extends Component {
+class authorPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
       bookId: '',
       Url: '',
       Name: '',
-      Rating: '',
-      Description: '',
-      Price: '',
       AuthId: '',
-      Bio: '',
       AuthName:'',
-      relatedBooks: [],
-      Comments: []
+      relatedBooks: []
       }
   }
   componentDidMount() {
@@ -40,10 +36,7 @@ class bookPage extends Component {
           Name,
           Url,
           Price,
-          Rating,
-          Description,
-          AuthId,
-          Comments
+          AuthId
       })
       //console.log('Name1:', this.state.AuthId)
       const authorId = this.state.AuthId
@@ -59,7 +52,6 @@ class bookPage extends Component {
         //console.log('Bio: ', {Bio})
 
         this.setState({
-            Bio,
             AuthName
         })
         //console.log('State: ', this.state)
@@ -87,32 +79,10 @@ class bookPage extends Component {
       });
     })
   }
-
-
-
-  render() {
-    if (!this.state.Name) {
-      return <p>Loading...</p>
-    }
-
-    return(
-
-      <div className="container">
-        <TitleHeader name={this.state.Name}></TitleHeader>
-        <div className="row">
-          <div className="col-lg">
-          <BookImage Url={this.state.Url}></BookImage>
-          </div>
-          <div className="col-md">
-          <ProductDescription price={this.state.Price} rating={this.state.Rating} description={this.state.Description} authorName={this.state.AuthName} bio={this.state.Bio} relatedBooks={this.state.relatedBooks} Comments={this.state.Comments}> </ProductDescription>
-          </div>
-        </div>
-
-        </div>
-
-
-    );
-  };
-};
-
-export default bookPage;
+  render()
+  <div>
+  Related Books:
+  {relatedBooks.map(book =>
+    <DisplayBook {...book}/>
+  )}
+  </div>

@@ -4,13 +4,18 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import DisplayBook from '../DisplayBook';
+
+
 
 // const ProductDescription = ({price}) => {
 //   return (
 //
 //   )
 // }
-const ProductDescription = ({price, rating, description}) => {
+const ProductDescription = ({price, rating, description, authorName, bio, relatedBooks, Comments}) => {
+  var html = "<p>" + Comments.join("</p><p>") + "</p>"
+
   return(
     <div>
       <p>
@@ -48,23 +53,68 @@ const ProductDescription = ({price, rating, description}) => {
         </div>
         <br />
 
-        <div class="accordion" id="accordionExample">
+        <div class="accordion" id="accordionExample1">
           <div class="card">
-            <div class="card-header" id="headingOne">
+            <div class="card-header" id="heading1">
               <h5 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
                     Description
                 </button>
               </h5>
             </div>
 
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordionExample1">
               <div class="card-body">
               {description}
               </div>
             </div>
           </div>
          </div>
+
+         <div class="accordion" id="accordionExample2">
+           <div class="card">
+             <div class="card-header" id="heading2">
+               <h5 class="mb-0">
+                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                     Author
+                 </button>
+               </h5>
+             </div>
+
+             <div id="collapse2" class="collapse show" aria-labelledby="heading2" data-parent="#accordionExample2">
+               <div class="card-body">
+               Author: {authorName}
+               <br />
+               Bio: {bio}
+               <br />
+
+               Related Books:
+               {relatedBooks.map(book =>
+                 <DisplayBook {...book}/>
+               )}
+               </div>
+             </div>
+           </div>
+           <div class="accordion" id="accordionExample3">
+             <div class="card">
+               <div class="card-header" id="heading3">
+                 <h5 class="mb-0">
+                   <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                       Comments
+                   </button>
+                 </h5>
+               </div>
+
+               <div id="collapse3" class="collapse show" aria-labelledby="heading3" data-parent="#accordionExample3">
+                 <div class="card-body">
+                 <pre>{Comments.join("\n\n")} </pre>
+
+
+                 </div>
+               </div>
+             </div>
+            </div>
+          </div>
       </div>
 
 

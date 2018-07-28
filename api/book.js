@@ -25,12 +25,14 @@ router.get('/book', (req, res, next) => {
          Url: 1,
          Rating: 1,
          Price: 1,
-         Description: 1
+         Description: 1,
+         AuthId: 1,
+         Comments: 1
        })
        .each((err, Book) => {
          assert.equal(null, err);
 
-         if (!Book) { 
+         if (!Book) {
            res.send( Books );
            return;
          }

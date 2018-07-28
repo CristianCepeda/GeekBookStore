@@ -30,11 +30,8 @@ router.get('/author', (req, res, next) => {
            res.send( Authors );
            return;
          }
-
-         Authors[Author.id] = Author;
+         Authors[Author.AuthId] = Author;
        });
-       console.log('Authors:', Authors)
-
   });
 
 
@@ -46,12 +43,12 @@ router.get('/author/:authorId', (req, res) => {
      .each((err, Author) => {
        assert.equal(null, err);
 
-       if (!Author) { // no more names
+       if (!Author) {
          res.send({ AuthorArray });
          return;
        }
 
-       AuthorArray[Author.id] = Author;
+       AuthorArray[Author.AuthId] = Author;
      });
 });
 

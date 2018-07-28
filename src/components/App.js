@@ -27,18 +27,18 @@ class App extends Component {
     fetch(`http://localhost:8080/book`).then(results => {
       return results.json()
     }).then(data => {
-      console.log(data);
+      //console.log(data);
       var arrayLength = Object.keys(data).length;
       let newData = []
       for (var i in data) {
         if (!data.hasOwnProperty(i)) continue
-        console.log('got here')
+        //console.log('got here')
         newData.push(data[i])
       }
       this.setState({
         data: newData
       }, () => {
-        console.log('new data', this.state)
+        //console.log('new data', this.state)
       })
     })
   }
