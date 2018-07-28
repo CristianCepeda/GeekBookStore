@@ -66,10 +66,10 @@ class TabCreateAccount extends Component {
       username: this.state.username,
       password: this.state.password})
       .then(function(response) {
-        alert('Account was created.');
         console.log(response);
         console.log(response.data._id);
       });
+    alert('Account was created.');
   }
 
   render() {

@@ -61,6 +61,7 @@ class AddShippingAddressModal extends Component {
       .then(function(response){
         console.log(response);
       });
+    alert('New Shipping address created.');
   }
 
   render() {

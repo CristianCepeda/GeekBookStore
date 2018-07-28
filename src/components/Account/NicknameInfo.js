@@ -26,6 +26,7 @@ class NicknameInfo extends Component {
       .catch(function(error){
         console.log(error);
       });
+    alert('Changes Saved');
   }
   componentDidMount() {
     axios.get(`/user/${config.usersObjectId}/data`)
