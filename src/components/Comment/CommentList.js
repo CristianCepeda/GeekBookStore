@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import Comment from './Comment';
-import data from '../../assets/data/schemaUSA';
-var states = data.states;
+//import data from '../../assets/data/schemaUSA';
+//var states = data.states;
 
+function Comments(props) {
+    return(
+      <div className="card" id = "comment-user">
+        <div className= "card-header">
+          <h5>{props.name}</h5>
+        </div>
+
+        <div className= "card-body" id = "comment-text">
+          <p>{props.text}</p>
+        </div>
+      </div>
+    );
+  }
 
 
 class CommentList extends Component {
@@ -12,9 +25,10 @@ class CommentList extends Component {
   constructor(props){
     super(props);
     this.state = {
-      BookId: '',
+      name: '',
       text: ''
     };
+  }
 
   componentDidMount() {
      axios.get(`/bookpage/1/Comment`)
@@ -28,8 +42,8 @@ class CommentList extends Component {
   render() {
     return(
       <div className="commentList">
-      <Comment username="Kevin Kim" text = "Nice comment"></Comment>
-      <Comment username="Tokiomi" text =" thank you!"></Comment>
+      <Comments name="Kevin Kim" text = "Nice, Comment Box!"></Comments>
+      <Comments name="Tokiomi" text = "Thank you :)"></Comments>
       </div>
 
     );

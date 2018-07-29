@@ -5,6 +5,7 @@ import {
   Link
 } from 'react-router-dom';
 import CommentBox from '../Comment/CommentForm';
+import CommentList from '../Comment/CommentList';
 //<div>
 //<CommentBox />
 //</div>
@@ -83,6 +84,7 @@ const ProductDescription = ({price, rating, description}) => {
 
              <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample2">
                <div class="card-body">
+               <CommentList />
                <CommentBox />
                </div>
              </div>
