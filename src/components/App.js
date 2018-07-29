@@ -25,14 +25,14 @@ class App extends Component {
     };
   }
   componentDidMount() {
-  fetch(`http://localhost:8080/book`).then(results => {
+    fetch('http://localhost:8000/book').then(results => {
       return results.json();
     }).then(data => {
       console.log(data);
-      var arrayLength = Object.keys(data).length;
+      // var arrayLength = Object.keys(data).length;
       let newData = [];
       for (var i in data) {
-        if (!data.hasOwnProperty(i)) continue
+        if (!data.hasOwnProperty(i)) continue;
         console.log('got here');
         newData.push(data[i]);
       }
@@ -55,14 +55,14 @@ class App extends Component {
             <Route path="/contact" component={ContactPage} />
             <Route path="/auth/signin" component={SignInPage} />
             <Route path="/bookpage/:bookId" component={bookPage}/>
-            <Route exact path="/" render={(props) =>(
+            <Route exact path="/" render={() =>(
               /*The Main Part Of the Website should go inside of <main></main> */
               <main>
                 <div className="container">
 
                   <h1 align="left">Books</h1>
                   {this.state.data.map(book =>
-                    <DisplayBook {...book}/>
+                    <DisplayBook key={book.id} {...book}/>
                   )}
                 </div>
               </main>

@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
 
 class CommentBox extends Component {
+  constructor(props){
+    super(props);
+
+  }
 
   render() {
     return(
       <div className="commentBox">
         <CommentList />
-        <CommentForm />
+        <CommentForm bookid={this.props.bookid}/>
       </div>
     );
   }

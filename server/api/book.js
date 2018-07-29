@@ -14,33 +14,33 @@ let mdb;
 // Use connect method to connect to the server
 MongoClient.connect(uri, function(err, db) {
   assert.equal(null, err);
-  console.log("Connected successfully to server");
-  mdb = db.db("Vic")
-})
+  console.log('Connected successfully to server');
+  mdb = db.db('Vic');
+});
 
 router.get('/book', (req, res, next) => {
   let Books = {};
-    mdb.collection('Books').find({})
-       .project({
-         id: 1,
-         Name: 1,
-         Author: 1,
-         Url: 1,
-         Rating: 1,
-         Price: 1,
-         Description: 1
-       })
-       .each((err, Book) => {
-         assert.equal(null, err);
+  mdb.collection('Books').find({})
+    .project({
+      id: 1,
+      Name: 1,
+      Author: 1,
+      Url: 1,
+      Rating: 1,
+      Price: 1,
+      Description: 1
+    })
+    .each((err, Book) => {
+      assert.equal(null, err);
 
-         if (!Book) {
-           res.send( Books );
-           return;
-         }
+      if (!Book) {
+        res.send( Books );
+        return;
+      }
 
-         Books[Book.id] = Book;
-       });
-  });
+      Books[Book.id] = Book;
+    });
+});
 
 
 
@@ -48,16 +48,16 @@ router.get('/book/:bookIds', (req, res) => {
   const BookId = req.params.bookIds
   let BookArray = {};
   mdb.collection('Books').find({ 'id': BookId })
-     .each((err, Book) => {
-       assert.equal(null, err);
+    .each((err, Book) => {
+      assert.equal(null, err);
 
-       if (!Book) { // no more names
-         res.send({ BookArray });
-         return;
-       }
+      if (!Book) { // no more names
+        res.send({ BookArray });
+        return;
+      }
 
-       BookArray[Book.id] = Book;
-     });
+      BookArray[Book.id] = Book;
+    });
 });
 
 router.post('book/:BookId/Comment', CommentController.postNewComment);

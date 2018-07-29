@@ -4,7 +4,7 @@ export const nodeEnv = env.NODE_ENV || 'development';
 
 export default{
   mongodbUri: 'mongodb+srv://ccepe014:password2018@geekbookstore-u9379.mongodb.net/Vic',
-  port: env.PORT || 8080,
+  port: env.PORT || 8000,
   expireTime: 24 * 60 * 10,
   secrets:{
     jwt: env.JWT || 'gumball'
