@@ -1,4 +1,3 @@
-var _ = require('lodash');
 var comment = require('./CommentModel');
 
 // IF Comment FOUND BY ID THEN ATTACH it TO [ req.comment]
@@ -22,20 +21,30 @@ exports.getCommentData = function(req,res,next) {
   next();
 };
 
-// POST REQUEST TO CREATE A NEW USER IN THE DATABASE
-/*-----------------------------------------------------------------------
- | This route is being used by [ http://localhost:8080/auth/createaccount ]
- | in the create user tab.
- -----------------------------------------------------------------------*/
+
 exports.postNewComment = function(req,res,next){
-  var newComment = new comment(req.body/*data that was sent to local:8080/auth/createaccount*/);
-  newComment.save(function(err,comment)/*when you save it to the database*/{
+
+  var newComment = new comment(req.body);
+  console.log('THIS IS THE CONTENTS OF newComment' + newComment);
+  newComment.save(function(err,comment){
     if(err){return next(err);}
     console.log('your new comment was saved');
     res.json(comment);
   });
 };
 
-/*exports.getExistingComment = function(req,res,next){
-
-}*/
+// router.get('/book/:bookIds', (req, res) => {
+//   const BookId = req.params.bookIds
+//   let BookArray = {};
+//   mdb.collection('Books').find({ 'id': BookId })
+//     .each((err, Book) => {
+//       assert.equal(null, err);
+//
+//       if (!Book) { // no more names
+//         res.send({ BookArray });
+//         return;
+//       }
+//
+//       BookArray[Book.id] = Book;
+//     });
+// });

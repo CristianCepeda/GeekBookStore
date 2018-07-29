@@ -28,7 +28,8 @@ router.get('/book', (req, res, next) => {
       Url: 1,
       Rating: 1,
       Price: 1,
-      Description: 1
+      Description: 1,
+      MyBookComment:1
     })
     .each((err, Book) => {
       assert.equal(null, err);
@@ -45,7 +46,7 @@ router.get('/book', (req, res, next) => {
 
 
 router.get('/book/:bookIds', (req, res) => {
-  const BookId = req.params.bookIds
+  const BookId = req.params.bookIds;
   let BookArray = {};
   mdb.collection('Books').find({ 'id': BookId })
     .each((err, Book) => {
@@ -60,8 +61,23 @@ router.get('/book/:bookIds', (req, res) => {
     });
 });
 
-router.post('book/:BookId/Comment', CommentController.postNewComment);
+// router.post('book/:bookId/Comment', CommentController.postNewComment);
+router.post('book/:bookid/Comment',(req,res) => {
+  const bookID = req.params.bookid;
+  console.log('BOOOOKKK ID   ' + bookID);
+  let BookArray = {};
+  mdb.collection('Books').find({ 'id': bookID })
+    .each((err, Book) => {
+      assert.equal(null, err);
 
+      if (!Book) { // no more names
+        res.send({ BookArray });
+        return;
+      }
+
+      BookArray[Book.MyBookComment] = Book;
+    });
+});
 
 
 

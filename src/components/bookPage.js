@@ -23,7 +23,7 @@ class bookPage extends Component {
       return results.json();
     }).then(data => {
       console.log('data', data);
-      const { Name, Url, Price, Rating, Description, _id } = data.BookArray[bookId];
+      const { Name, Url, Price, Rating, Description } = data.BookArray[bookId];
       console.log('Book URL:', Url);
       this.setState({
         Name,
@@ -31,7 +31,7 @@ class bookPage extends Component {
         Price,
         Rating,
         Description,
-        _id
+        bookId
       });
     });
   }
@@ -50,7 +50,7 @@ class bookPage extends Component {
             <BookImage Url={this.state.Url}></BookImage>
           </div>
           <div className="col-md">
-            <ProductDescription price={this.state.Price} rating={this.state.Rating} description={this.state.Description} BookID={this.state._id}></ProductDescription>
+            <ProductDescription price={this.state.Price} rating={this.state.Rating} description={this.state.Description} BookID={this.state.bookId}></ProductDescription>
           </div>
         </div>
       </div>

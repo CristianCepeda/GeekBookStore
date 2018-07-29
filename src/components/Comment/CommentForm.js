@@ -22,10 +22,10 @@ class CommentForm extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    axios.post(`/bookpage/${this.props.bookid}/comment`, {
+    axios.post(`http://localhost:8000/book/${this.props.bookid}/Comment` , {
       BookId: this.state.BookId,
       user: this.state.user,
-      text: this.state.text}/*the parameters*/)//sending the information to local8080/auth/create account
+      text: this.state.text})
       .then(function(response) {
         console.log(response);
       })
