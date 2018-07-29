@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-//import data from '../../assets/data/schemaUSA';
-//var states = data.states;
-
 function Comments(props) {
     return(
       <div className="card" id = "comment-user">
@@ -25,6 +22,7 @@ class CommentList extends Component {
   constructor(props){
     super(props);
     this.state = {
+      BookId: '',
       name: '',
       text: ''
     };
@@ -45,7 +43,6 @@ class CommentList extends Component {
       <Comments name="Kevin Kim" text = "Nice, Comment Box!"></Comments>
       <Comments name="Tokiomi" text = "Thank you :)"></Comments>
       </div>
-
     );
   }
 }

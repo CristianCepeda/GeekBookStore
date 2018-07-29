@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+var CommentController = require('./Comment/CommentController');
+
+
 
 //mongo Connection
 var MongoClient = require('mongodb').MongoClient
@@ -56,6 +59,9 @@ router.get('/book/:bookIds', (req, res) => {
        BookArray[Book.id] = Book;
      });
 });
+
+router.post('book/:BookId/Comment', CommentController.postNewComment);
+
 
 
 

@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 class CommentForm extends Component {
 
   constructor(props){
     super(props);
+    //this.handleUserChange = this.handleUserChange.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
+      BookId: '',
+      user: '',
       text: ''
     };
   }
+
+/*  handleNameChange(evt) {
+    this.setState({
+      name: evt.target.value
+    });
+  }*/
 
   handleTextChange(evt) {
     this.setState({
@@ -21,7 +32,9 @@ class CommentForm extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
     axios.post('/bookpage/1/comment', {
-      text: this.state.firstname,}/*the parameters*/)//sending the information to local8080/auth/create account
+      BookId: this.state.BookId,
+      user: this.state.user,
+      text: this.state.text}/*the parameters*/)//sending the information to local8080/auth/create account
       .then(function(response) {
         this.props.history.push('/');
         console.log(response);

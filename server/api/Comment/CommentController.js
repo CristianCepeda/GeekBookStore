@@ -31,7 +31,7 @@ exports.postNewComment = function(req,res,next){
   var newComment = new comment(req.body/*data that was sent to local:8080/auth/createaccount*/);
   newComment.save(function(err,comment)/*when you save it to the database*/{
     if(err){return next(err);}
-    console.log('you new comment saved');
+    console.log('your new comment was saved');
     res.json(comment);
   });
 };
